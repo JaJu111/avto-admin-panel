@@ -1,0 +1,46 @@
+.aside
+    display: flex
+
+.aside-left
+    width: 275px
+
+.aside-right
+    width: calc(100% - 275px)
+    min-height: 100vh
+    padding: 20px 40px 40px 40px
+
+.aside-top
+    display: none
+
+.aside-left.hide
+    width: 80px
+
+.aside-right.hide
+    width: calc(100% - 80px)
+    
+
+@media (max-width: 1024px)
+    .aside-top
+        position: relative
+        display: block
+        min-height: 66px
+        padding: 20px 40px
+        user-select: none
+        box-shadow: 0 6px 18px rgb(0 0 0 / 40%)
+        background-color: #232323
+
+    .aside
+        flex-direction: column
+        
+    .aside-left
+        display: none
+        
+    .aside-right
+        width: 100%
+
+    .aside-right.hide
+        width: 100%
+
+@media (max-width: 600px)
+    .aside-right
+        padding: 20px

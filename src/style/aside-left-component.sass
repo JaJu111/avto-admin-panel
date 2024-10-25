@@ -1,0 +1,158 @@
+.main
+    position: fixed
+    width: 275px
+    transition: 0.3ms easy
+
+    &-box
+        position: relative
+        padding: 20px 20px
+        height: 100vh
+        box-shadow: 0px 0px 8px 6px rgb(0 0 0 / 25%)
+        background-color: #232323
+    
+    &-aside-top
+        position: relative
+        display: flex
+        margin-bottom: 20px
+
+        span
+            position: absolute
+            top: -9px
+            left: 44px
+            font-size: 35px
+            font-weight: bold
+            color: #db0000
+
+        img
+            width: 220px
+            filter: drop-shadow(7px 0px 3px black)
+
+    &-bottom
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        height: 87%
+
+.main-aside 
+    li
+        list-style: none
+        padding: 12px 18px
+        font-size: 18px
+        margin-bottom: 6px
+        transition: all .1s
+
+    li.text-white
+        // background-color: #f33636
+        background-color: #0050f9
+
+    li.text-white:hover
+        color: #000
+        // background-color: #f33636
+        background-color: #0050f9
+
+    li:hover
+        color: #fff
+        // background-color: #f33636
+        background-color: #0050f9
+
+    a
+        color: #fff
+        font-weight: 600
+        text-decoration: none
+
+    i
+        margin-right: 8px
+
+
+.user
+    display: flex
+    align-items: center
+    padding: 12px 20px
+
+    &-title
+        margin-left: 12px
+        font-size: 18px
+        font-weight: 500
+        color: #fff
+
+    &-img-box
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 40px
+        height: 40px
+        border-radius: 50%
+        background-color: #fff
+
+        span
+            color: #000
+            font-weight: 500
+
+.main-aside-bottom
+    background-color: #f33636
+    border-radius: 8px
+
+.log-out
+    color: #fff
+
+
+.line
+    padding: 0 20px
+    margin-bottom: 6px
+    
+    &-box
+        height: 1px
+        width: 100%
+        background-color: #fff
+
+
+.hide-box
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 30px
+    height: 30px
+    right: -15px
+    top: 50%
+    border-radius: 50%
+    z-index: 1
+    transform: translateY(-50%)
+    position: absolute
+    background-color: #f33636
+    cursor: pointer
+    animation: moveBall 0.4s infinite alternate
+
+    i
+        color: #fff
+
+    @keyframes moveBall
+        from
+            right: -16px
+
+        to
+            right: -14px
+
+.main.hide-aside
+    width: 80px
+
+.main-box.hide .main-bottom
+    height: 95%
+
+.main-box.hide
+    padding: 40px 12px 20px 12px
+
+.main-aside-top.hide
+    margin-left: 9px
+
+.user.hide
+    padding: 8px 8px 14px 8px
+
+.line.hide
+    padding: 0 12px
+    margin-bottom: 0
+
+.main-aside-bottom.hide
+    border-radius: 26px
+
+.main-aside.hide li
+    border-radius: 50%

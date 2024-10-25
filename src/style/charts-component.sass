@@ -1,0 +1,106 @@
+
+.home
+    &-page
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+        grid-gap: 24px
+
+    &-chart
+        padding: 16px 26px 24px
+        background: #fff
+        box-shadow: 0 5px 12px rgb(0 0 0 / 40%)
+        border-radius: 4px
+        position: relative
+
+.chart
+    &__title
+        font-size: 16px
+        line-height: 20px
+        color: #90a0b7
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        margin-bottom: 8px
+
+        span
+            font-size: 18px
+
+    &__container
+        max-width: 100%
+        position: relative
+
+    &__header
+        font-weight: 600
+        font-size: 28px
+        line-height: 35px
+        color: #334d6e
+        margin-bottom: 28px
+        position: relative
+
+    &__chart
+        display: flex
+        align-items: flex-end
+
+        .hover-text
+            display: none
+            position: absolute
+            min-width: 130px
+            max-width: 100%
+            top: -70px
+            left: -60px
+            background-color: #fff
+            color: #fff
+            padding: 10px
+            border-radius: 4px
+            box-shadow: 0px 0px 13px -1px rgba(34, 60, 80, 0.34)
+            color: #000
+            z-index: 10
+
+    &__box0:hover
+        background-color: #b58941
+        cursor: pointer
+
+    &__box0
+        position: relative
+        width: 100%
+        background-color: #ffb946
+        margin-left: 2px
+
+    &__box1:hover
+        background-color: #199351
+        cursor: pointer
+
+    &__box1
+        position: relative
+        width: 100%
+        background-color: #2ed47a
+        margin-left: 2px
+
+    &__box2:hover
+        background-color: #4c2f93
+        cursor: pointer
+
+    &__box2
+        position: relative
+        width: 100%
+        background-color: #885af8
+        margin-left: 2px
+
+.chart__box0:hover .hover-text,
+.chart__box1:hover .hover-text,
+.chart__box2:hover .hover-text
+    display: block
+
+.order0
+    border-left: 3px solid #ffb946
+
+.order1
+    border-left: 3px solid #2ed47a
+
+.order2
+    border-left: 3px solid #885af8
+
+
+@media (max-width: 360px)
+    .home-page
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))
