@@ -12,4 +12,7 @@ export interface SalesInfo {
     payment: number
     initialPayment: number
     color: string
+    km: number
+    year: string
+    type: string
 }

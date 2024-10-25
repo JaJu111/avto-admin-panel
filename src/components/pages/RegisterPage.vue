@@ -2,8 +2,7 @@
     <div>
         <div class="login-page">
             <div class="login-content">
-                <img class="mb-3" src="../../assets/KT_Logo.png">
-                <h3 class="mb-4 title">Регистрация Kt-Pro</h3>
+                <img class="mb-3" src="../../assets/car-logo.png">
 
                 <form class="form" @submit.prevent="submitHandler">
                     <span>Имя</span>

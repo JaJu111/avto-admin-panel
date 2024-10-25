@@ -18,7 +18,10 @@ export default class SalesMixin extends Vue {
             monthLeft: 12,
             payment: 5000,
             initialPayment: 1000,
-            color: 'Белый'
+            color: 'Белый',
+            km: 124566,
+            year: '2010',
+            type: 'MECHANICS'
         },
         {
             id: 3143,
@@ -33,7 +36,10 @@ export default class SalesMixin extends Vue {
             monthLeft: 18,
             payment: 6000,
             initialPayment: 2000,
-            color: 'Молочный'
+            color: 'Молочный',
+            km: 158653,
+            year: '2012',
+            type: 'AUTO'
         },
         {
             id: 2461,
@@ -48,7 +54,10 @@ export default class SalesMixin extends Vue {
             monthLeft: 20,
             payment: 9000,
             initialPayment: 3000,
-            color: 'Синый'
+            color: 'Синый',
+            km: 94275,
+            year: '2018',
+            type: 'AUTO'
         },
         {
             id: 7321,
@@ -63,7 +72,10 @@ export default class SalesMixin extends Vue {
             monthLeft: 8,
             payment: 8000,
             initialPayment: 1000,
-            color: 'Мокрый асфальт'
+            color: 'Мокрый асфальт',
+            km: 113254,
+            year: '2016',
+            type: 'MECHANICS'
         },
         // {
         //     id: 5432,
