@@ -18,8 +18,7 @@ export default class SalesPageMixin extends Mixins(
 
     get filterSalesArr() {
         return this.salesArr.filter(i => {
-            return i.name.toLowerCase().includes(this.searchBySales)
-                || i.id.toString().includes(this.searchBySales);
+            return i.car.toLowerCase().includes(this.searchBySales);
         });
     }
 }

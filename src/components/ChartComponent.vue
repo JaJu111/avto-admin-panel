@@ -9,24 +9,24 @@
                 <div class="chart__container">
                     <div class="chart__header">
                         {{ 
-                            idx === 0 ? salesArr.length + ' ' + 'машин' : '' || 
+                            idx === 0 ? salesArr.filter(i => i.monthLeft !== 0).length + ' ' + 'машин' : '' || 
                             idx === 1 ? salesArrItemsSold : '' || 
-                            idx === 2 ? salesArr.filter(i => i.status === 'DELIVERED').length + ' ' + 'клиентов' : '' 
+                            idx === 2 ? salesArr.filter(i => i.monthLeft === 0).length + ' ' + 'клиентов' : '' 
                         }}
                     </div>
 
                     <div class="chart__chart">
                         <div 
-                            v-for="item in idx !== 2 ? salesArr : salesArr.filter(i => i.status === 'DELIVERED')" 
+                            v-for="item in idx !== 2 ? salesArr.filter(i => i.monthLeft !== 0) : salesArr.filter(i => i.monthLeft === 0)" 
                             :class="'chart__box' + idx"
-                            :style="{height: `${+item.amount.slice(1, 4) / 10}px`}"
+                            :style="{height: `${+item.payment / 200}px`}"
                         >
                             <span v-if="idx !== 1" class="hover-text">
-                                {{ item.date }}
+                                <b>{{ item.car }}</b>
                             </span>
 
                             <span v-else class="hover-text">
-                                <b>{{ item.amount }}</b> <br> {{ item.date }}
+                                <b>{{ format(item.payment) }}{{ '$' }}</b> {{ item.monthLeft }} {{ 'Месяц осталось' }}
                             </span>
                         </div>
                     </div>
@@ -61,9 +61,9 @@ export default class ChartComponent extends Vue {
     get salesArrItemsSold(): string {
         let itemsSold: number = 0;
 
-        itemsSold = this.salesArr.reduce((sum, i: SalesInfo) => sum += +i.amount.slice(1), 0);
+        itemsSold = this.salesArr.reduce((sum, i: SalesInfo) => sum += i.monthLeft !== 0 ? +i.payment : i.payment - i.payment, 0);
 
-        return `$${this.format(itemsSold)}`;
+        return `${this.format(itemsSold)} $`;
     }
 
     format(v: number): string {

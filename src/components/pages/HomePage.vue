@@ -22,9 +22,9 @@
                 </div>
             </div>
 
-            <div class="car-box">
-                <div 
-                    v-for="item in salesArr" 
+            <div v-if="filterSalesArr.length" class="car-box">
+                <div
+                    v-for="item in filterSalesArr" 
                     class="car-card"
                 >
                     <div class="car-img">
@@ -36,15 +36,20 @@
                             <div>
                                 <h1>{{ item.car }}</h1>
 
-                                <h2><h1>{{ item.monthLeft }}</h1> {{ 'Месяц осталось' }}</h2>
+                                <h2 v-if="item.monthLeft !== 0"><h1>{{ item.monthLeft }}</h1> {{ 'Месяц осталось' }}</h2>
+                                <h2 v-else>Распродано!</h2>
                             </div>
 
-                            <span>{{ format(item.payment) }}</span>
+                            <span>{{ item.monthLeft !== 0 ? format(item.payment) : format(item.monthLeft) }}</span>
                         </div>
 
                         <button class="btn btn-danger mt-3 w-full" @click="getCarInfo(item)">Посмотреть</button>
                     </div>
                 </div>
+            </div>
+
+            <div v-else>
+                <h1>Не найдено машин по вашему запросу</h1>
             </div>
         </div>
     </div>
