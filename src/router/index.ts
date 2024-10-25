@@ -15,22 +15,18 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/home',
-        name: 'home',
         component: HomeComponent,
         children: [
             {
                 path: '/home',
-                name: 'home',
                 component: HomePage
             },
             {
                 path: '/products',
-                name: 'products',
                 component: ProductsPage 
             },
             {
                 path: '/products/info',
-                name: 'products-info',
                 component: ProductsInfoPage,
             },
             {

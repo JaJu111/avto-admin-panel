@@ -80,12 +80,7 @@ export default class ProductsPage extends Mixins(
     getProductsInfo(item: ProductsMixin): void {
         sessionStorage.setItem('productsInfo', JSON.stringify(item));
             
-        this.$router.push({
-            name: 'products-info',
-            params: {
-                path: '/products/info'
-            }
-        })
+        this.$router.push('/products/info');
     }
 }
 

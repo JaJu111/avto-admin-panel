@@ -69,12 +69,7 @@ export default class ProductsInfoPage extends Vue {
     hideProductImg: boolean = false;
 
     submitProduct(): void {
-        this.$router.push({
-            name: 'products',
-            params: {
-                path: '/products'
-            }
-        })
+        this.$router.push('/products');
     }
 
     deleteProductImg(): void {

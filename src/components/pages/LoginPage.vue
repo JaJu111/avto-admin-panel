@@ -1,6 +1,12 @@
 <template>
     <div>
-        <div class="login-page">
+        <div class="login-page" 
+            style="
+                background-image: url('https://4kwallpapers.com/images/wallpapers/bmw-m3-angel-eyes-black-background-5k-5000x3000-896.jpg');
+                background-position: center;
+                background-size: cover;
+            "
+        >
             <div class="login-content">
                 <img class="mb-3" src="../../assets/car-logo.png">
 
@@ -67,12 +73,7 @@ export default class LoginPage extends Vue {
         }
 
         if (user.login && user.password) {
-            this.$router.push({
-                name: 'home',
-                params: {
-                    path: '/home'
-                }
-            });
+            this.$router.push('/home');
 
             sessionStorage.setItem('user', JSON.stringify(user));
 
