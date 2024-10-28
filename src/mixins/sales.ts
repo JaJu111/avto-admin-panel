@@ -84,7 +84,8 @@ export default class SalesMixin extends Vue {
             amount: '$510',
             status: 'NO_DELIVERED',
             car: 'Spark 3 EURO',
-            carImg: 'https://avatars.mds.yandex.net/get-autoru-vos/1629149/da377c191a60cb6dc3ad1eda122c8e66/1200x900',
+            // carImg: 'https://avatars.mds.yandex.net/get-autoru-vos/1629149/da377c191a60cb6dc3ad1eda122c8e66/1200x900',
+            carImg: '',
             carNumber: '01 O 994 SA',
             month: 20,
             monthLeft: 0,
@@ -102,7 +103,8 @@ export default class SalesMixin extends Vue {
             amount: '$212',
             status: 'DELIVERED',
             car: 'Lacetti',
-            carImg: 'https://upl.uz/uploads/posts/2021-10/1633238997_1200x900n.jpg',
+            // carImg: 'https://upl.uz/uploads/posts/2021-10/1633238997_1200x900n.jpg',
+            carImg: '',
             carNumber: '01 A 943 FW',
             month: 30,
             monthLeft: 20,
@@ -131,13 +133,24 @@ export default class SalesMixin extends Vue {
             year: '2016',
             type: 'AUTO'
         },
-        // {
-        //     id: 3895,
-        //     name: 'Игнатий Осипов',
-        //     date: '18 авг. 2024 г.',
-        //     amount: '$162',
-        //     status: 'DELIVERED'
-        // }
+        {
+            id: 3895,
+            name: 'Игнатий Осипов',
+            date: '18 авг. 2024 г.',
+            amount: '$162',
+            status: 'DELIVERED',
+            car: 'Spark 2',
+            carImg: '',
+            carNumber: '01 K 445 GE',
+            month: 20,
+            monthLeft: 0,
+            payment: 7200,
+            initialPayment: 2500,
+            color: 'Белый',
+            km: 131400,
+            year: '2019',
+            type: 'MECHANICS'
+        }
     ]
 
 }

@@ -22,7 +22,7 @@
                             class="rounded-md" 
                             :class="{'text-white': $route.path === '/home' || $route.path === '/home/car-info'}"
                         >
-                            <i class="fa-solid fa-house"></i> <span v-if="!hideAside">Аренда</span>
+                            <i class="fa-solid fa-house"></i> <span v-if="!hideAside">Главная</span>
                         </li>
                     </router-link>
 

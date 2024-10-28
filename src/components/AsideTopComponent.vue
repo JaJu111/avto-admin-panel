@@ -17,7 +17,7 @@
                     class="rounded-md" 
                     :class="{'active': $route.path === '/home' || $route.path === '/home/car-info'}"
                 >
-                    <i class="fa-solid fa-house"></i> <span>Аренда</span>
+                    <i class="fa-solid fa-house"></i> <span>Главная</span>
                 </li>
             </router-link>
 

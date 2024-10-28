@@ -5,17 +5,25 @@
         />
 
         <div v-if="!pageLoading">
-            <h1 class="text-4xl font-medium text-black mb-10">Аренда</h1>
+            <h1 class="text-4xl font-medium text-black mb-8">Главная</h1>
 
             <ChartComponent
                 :salesArr="salesArr"
             />
 
-            <div class="search-content flex justify-between mt-10 mb-7 items-center">
-                <h3 class="text-2xl font-medium text-black">Поиск по машинам</h3>
+            <div class="search-content flex justify-between mt-10 mb-7 items-end">
+                <div class="filter-content">
+                    <h3 class="text-2xl font-medium text-black mb-3">Поиск по машинам</h3>
+
+                    <div class="filter-box">
+                        <button :class="['btn mr-2', {'btn-danger': btnSelected === 'Все'}]" @click="getSelectFilter($event)">Все {{ salesArr.length }}</button>
+                        <button :class="['btn mr-2', {'btn-danger': btnSelected === 'В аренде'}]" @click="getSelectFilter($event)">В аренде {{ salesArr.filter(i => i.monthLeft).length }}</button>
+                        <button :class="['btn mr-2', {'btn-danger': btnSelected === 'Проданный'}]" @click="getSelectFilter($event)">Проданный {{ salesArr.filter(i => !i.monthLeft).length }}</button>
+                    </div>
+                </div>
 
                 <div class="search-box">
-                    <input v-model.trim="searchBySales" type="text" placeholder="Поиск по машинам">
+                    <input v-model.trim="searchBySales" type="text" placeholder="Поиск">
 
                     <i class="fa-solid fa-magnifying-glass left-icon"></i>
                     <i v-if="searchBySales.length" class="fa-solid fa-xmark right-icon" @click="searchBySales = ''"></i>
@@ -28,7 +36,9 @@
                     class="car-card"
                 >
                     <div class="car-img">
-                        <img :src="item.carImg">
+                        <img v-if="item.carImg" :src="item.carImg">
+
+                        <i v-else class="fa-regular fa-image"></i>
                     </div>
 
                     <div class="mt-3">
@@ -97,7 +107,7 @@ export default class HomePage extends Mixins(
 
 .car-box
     display: grid
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
     grid-gap: 24px
 
 .car-card
@@ -132,10 +142,22 @@ export default class HomePage extends Mixins(
 
 .car-img
     width: 100%
+    height: 100px
     display: flex
     justify-content: center
+    align-items: center
 
     img
         width: 150px
+
+    i
+        font-size: 28px
+        color: #90a0b7
+
+.filter-box
+    button
+        font-weight: 500
+        font-size: 16px
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3)
 
 </style>
