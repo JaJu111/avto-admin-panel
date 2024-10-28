@@ -46,11 +46,11 @@
                             <div>
                                 <h1>{{ item.car }}</h1>
 
-                                <h2 v-if="item.monthLeft !== 0"><h1>{{ item.monthLeft }}</h1> {{ 'Месяц осталось' }}</h2>
-                                <h2 v-else>Распродано!</h2>
+                                <h2><b>{{ profitFromCurrentCar(item) }}$</b>Прибыль</h2>
+                                <h2><h1>{{ item.monthLeft }}</h1> {{ 'Месяц осталось' }}</h2>
                             </div>
 
-                            <span>{{ item.monthLeft !== 0 ? format(item.payment) : format(item.monthLeft) }}</span>
+                            <span>{{ format(item.payment) }}$</span>
                         </div>
 
                         <button class="btn btn-danger mt-3 w-full" @click="getCarInfo(item)">Посмотреть</button>
@@ -89,13 +89,23 @@ export default class HomePage extends Mixins(
 
         subValue = subValue || '';
 
-        return mainValue + subValue + ' $';
+        return mainValue + subValue;
     }
 
     getCarInfo(item: SalesInfo): void {
         sessionStorage.setItem('carInfo', JSON.stringify(item));
             
         this.$router.push('/home/car-info');
+    }
+
+    profitFromCurrentCar(item: SalesInfo): string {
+        let sum = item.payment - item.initialPayment;
+
+        let yearPersent = sum * 0.3;
+
+        let result = yearPersent / 12 * item.month;
+
+        return this.format(result);
     }
 }
 
@@ -134,7 +144,7 @@ export default class HomePage extends Mixins(
         display: flex
         align-items: baseline
         gap: 8px
-        margin-top: 2px
+        margin-top: 4px
 
     span
         font-size: 15px

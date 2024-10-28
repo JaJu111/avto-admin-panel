@@ -11,22 +11,31 @@
                         {{ 
                             idx === 0 ? salesArr.filter(i => i.monthLeft !== 0).length + ' ' + 'машин' : '' || 
                             idx === 1 ? salesArrItemsSold : '' || 
-                            idx === 2 ? salesArr.filter(i => i.monthLeft === 0).length + ' ' + 'клиентов' : '' 
+                            idx === 2 ? salesArr.filter(i => i.monthLeft === 0).length + ' ' + 'клиентов' : '' ||
+                            idx === 3 ? totalProfit : ''
                         }}
                     </div>
 
                     <div class="chart__chart">
                         <div 
-                            v-for="item in idx !== 2 ? salesArr.filter(i => i.monthLeft !== 0) : salesArr.filter(i => i.monthLeft === 0)" 
+                            v-for="item in idx === 2 ? salesArr.filter(i => !i.monthLeft) : salesArr.filter(i => i.monthLeft)" 
                             :class="'chart__box' + idx"
-                            :style="{height: `${+item.payment / 200}px`}"
+                            :style="{height: `${idx !== 3 ? item.payment / 200 : totalProfitByMonthLeft(item) / 100}px`}"
                         >
-                            <span v-if="idx !== 1" class="hover-text">
+                            <span v-if="idx === 0" class="hover-text">
                                 <b>{{ item.car }}</b>
                             </span>
 
-                            <span v-else class="hover-text">
+                            <span v-else-if="idx === 1" class="hover-text">
                                 <b>{{ format(item.payment) }}{{ '$' }}</b> {{ item.monthLeft }} {{ 'Месяц осталось' }}
+                            </span>
+
+                            <span v-if="idx === 2" class="hover-text">
+                                <b>{{ item.car }}</b>
+                            </span>
+
+                            <span v-if="idx === 3" class="hover-text">
+                                Прибыль <b>{{ profitFromCurrentCar(item) }}$ {{ item.car }}</b>
                             </span>
                         </div>
                     </div>
@@ -47,14 +56,16 @@ export default class ChartComponent extends Vue {
 
     chartHeader: any[] = [
         {
-            title: 'В аренде',
-            link: '/sales'
+            title: 'В аренде'
         },
         {
             title: 'Обшый сумма в аренде'
         },
         {
             title: 'Продано машин'
+        },
+        {
+            title: 'Общий прибыль'
         }
     ];
 
@@ -63,7 +74,7 @@ export default class ChartComponent extends Vue {
 
         itemsSold = this.salesArr.reduce((sum, i: SalesInfo) => sum += i.monthLeft !== 0 ? +i.payment : i.payment - i.payment, 0);
 
-        return `${this.format(itemsSold)} $`;
+        return `${this.format(itemsSold)}$`;
     }
 
     format(v: number): string {
@@ -76,6 +87,40 @@ export default class ChartComponent extends Vue {
         return mainValue + subValue;
     }
 
+    profitFromCurrentCar(item: SalesInfo): string {
+        let sum = item.payment - item.initialPayment;
+
+        let yearPersent = sum * 0.3;
+
+        let result = yearPersent / 12 * item.month;
+
+        return this.format(result);
+    }
+
+    totalProfitByMonthLeft(item: SalesInfo): number {
+        let sum: number = 0;
+        let result: number = 0;
+
+        if (item.monthLeft) {
+            sum = item.payment - item.initialPayment;
+
+            let yearPersent = sum * 0.3;
+
+            result = yearPersent / 12 * item.month;
+
+            return result;
+        }
+
+        return result;
+    }
+
+    get totalProfit(): string {
+        let itemsSold: number = 0;
+
+        itemsSold = this.salesArr.reduce((sum, i: SalesInfo) => sum += this.totalProfitByMonthLeft(i), 0);
+
+        return `${this.format(itemsSold)}$`;
+    }
 }
 
 </script>

@@ -19,7 +19,8 @@ export default class SalesMixin extends Vue {
             color: 'Белый',
             km: 124566,
             year: '2010',
-            type: 'MECHANICS'
+            type: 'MECHANICS',
+            percentagePerAnnum: 30
         },
         {
             id: 3143,
@@ -35,7 +36,8 @@ export default class SalesMixin extends Vue {
             color: 'Молочный',
             km: 158653,
             year: '2012',
-            type: 'AUTO'
+            type: 'AUTO',
+            percentagePerAnnum: 30
         },
         {
             id: 2461,
@@ -51,7 +53,8 @@ export default class SalesMixin extends Vue {
             color: 'Синый',
             km: 94275,
             year: '2018',
-            type: 'AUTO'
+            type: 'AUTO',
+            percentagePerAnnum: 30
         },
         {
             id: 7321,
@@ -67,7 +70,8 @@ export default class SalesMixin extends Vue {
             color: 'Мокрый асфальт',
             km: 113254,
             year: '2016',
-            type: 'MECHANICS'
+            type: 'MECHANICS',
+            percentagePerAnnum: 30
         },
         {
             id: 5432,
@@ -84,7 +88,8 @@ export default class SalesMixin extends Vue {
             color: 'Белый',
             km: 185000,
             year: '2012',
-            type: 'MECHANICS'
+            type: 'MECHANICS',
+            percentagePerAnnum: 30
         },
         {
             id: 3532,
@@ -101,7 +106,8 @@ export default class SalesMixin extends Vue {
             color: 'Серый',
             km: 215300,
             year: '2014',
-            type: 'AUTO'
+            type: 'AUTO',
+            percentagePerAnnum: 30
         },
         {
             id: 3928,
@@ -117,7 +123,8 @@ export default class SalesMixin extends Vue {
             color: 'Голубой',
             km: 172500,
             year: '2016',
-            type: 'AUTO'
+            type: 'AUTO',
+            percentagePerAnnum: 30
         },
         {
             id: 3895,
@@ -133,7 +140,8 @@ export default class SalesMixin extends Vue {
             color: 'Белый',
             km: 131400,
             year: '2019',
-            type: 'MECHANICS'
+            type: 'MECHANICS',
+            percentagePerAnnum: 30
         }
     ]
 

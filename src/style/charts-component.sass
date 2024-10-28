@@ -69,7 +69,8 @@
         position: relative
         width: 100%
         background-color: #ffb946
-        margin-left: 2px
+        margin-left: 1px
+        transition: all 0.2s
 
     &__box1:hover
         background-color: #199351
@@ -79,7 +80,8 @@
         position: relative
         width: 100%
         background-color: #2ed47a
-        margin-left: 2px
+        margin-left: 1px
+        transition: all 0.2s
 
     &__box2:hover
         background-color: #4c2f93
@@ -89,11 +91,24 @@
         position: relative
         width: 100%
         background-color: #885af8
-        margin-left: 2px
+        margin-left: 1px
+        transition: all 0.2s
+
+    &__box3:hover
+        background-color: rgb(41, 79, 182)
+        cursor: pointer
+
+    &__box3
+        position: relative
+        width: 100%
+        background-color: #5a85f8
+        margin-left: 1px
+        transition: all 0.2s
 
 .chart__box0:hover .hover-text,
 .chart__box1:hover .hover-text,
-.chart__box2:hover .hover-text
+.chart__box2:hover .hover-text,
+.chart__box3:hover .hover-text
     display: block
 
 .order0
@@ -104,6 +119,9 @@
 
 .order2
     border-left: 3px solid #885af8
+
+.order3
+    border-left: 3px solid #5a85f8
 
 
 @media (max-width: 360px)

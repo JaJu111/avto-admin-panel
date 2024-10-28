@@ -13,4 +13,5 @@ export interface SalesInfo {
     km: number
     year: string
     type: string
+    percentagePerAnnum: number
 }
