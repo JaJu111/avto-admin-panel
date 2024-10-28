@@ -41,7 +41,7 @@
                         <i v-else class="fa-regular fa-image"></i>
                     </div>
 
-                    <div class="mt-3">
+                    <div class="card-bottom">
                         <div class="car-info">
                             <div>
                                 <h1>{{ item.car }}</h1>
@@ -107,16 +107,16 @@ export default class HomePage extends Mixins(
 
 .car-box
     display: grid
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))
     grid-gap: 24px
 
 .car-card
     display: flex
     flex-direction: column
     justify-content: space-between
-    padding: 16px 26px 24px
+    // padding: 16px 26px 24px
     background: #fff
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4)
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2)
     border-radius: 4px
     position: relative
     user-select: none
@@ -142,7 +142,7 @@ export default class HomePage extends Mixins(
 
 .car-img
     width: 100%
-    height: 100px
+    height: 180px
     display: flex
     justify-content: center
     align-items: center
@@ -154,10 +154,14 @@ export default class HomePage extends Mixins(
         font-size: 28px
         color: #90a0b7
 
+.card-bottom
+    padding: 16px 26px 24px
+    background: #f1f1f1
+
 .filter-box
     button
         font-weight: 500
         font-size: 16px
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3)
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2)
 
 </style>
