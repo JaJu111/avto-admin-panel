@@ -16,9 +16,9 @@
                     <h3 class="text-2xl font-medium text-black mb-3">Поиск по машинам</h3>
 
                     <div class="filter-box">
-                        <button :class="['btn mr-2', {'btn-danger': btnSelected === 'Все'}]" @click="getSelectFilter($event)">Все {{ salesArr.length }}</button>
-                        <button :class="['btn mr-2', {'btn-danger': btnSelected === 'В аренде'}]" @click="getSelectFilter($event)">В аренде {{ salesArr.filter(i => i.monthLeft).length }}</button>
-                        <button :class="['btn mr-2', {'btn-danger': btnSelected === 'Проданный'}]" @click="getSelectFilter($event)">Проданный {{ salesArr.filter(i => !i.monthLeft).length }}</button>
+                        <button name="Все" :class="['btn mr-2', {'btn-danger': btnSelected === 'Все'}]" @click="getSelectFilter($event)">Все {{ salesArr.length }}</button>
+                        <button name="В аренде" :class="['btn mr-2', {'btn-danger': btnSelected === 'В аренде'}]" @click="getSelectFilter($event)">В аренде {{ salesArr.filter(i => i.monthLeft).length }}</button>
+                        <button name="Проданный" :class="['btn mr-2', {'btn-danger': btnSelected === 'Проданный'}]" @click="getSelectFilter($event)">Проданный {{ salesArr.filter(i => !i.monthLeft).length }}</button>
                     </div>
                 </div>
 

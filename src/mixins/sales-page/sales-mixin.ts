@@ -18,7 +18,7 @@ export default class SalesPageMixin extends Mixins(
 	}
 
     getSelectFilter(e: any): void {
-        let selected: string = e.target.textContent.slice(0, -2);
+        let selected: string = e.target.name;
 
         if (selected === 'Все') {
             this.btnSelected = 'Все';

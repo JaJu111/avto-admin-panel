@@ -35,7 +35,7 @@ export default class LoaderComponent extends Vue {
     height: 64px
     border-radius: 12px
     background-color: #fff
-    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.3)
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.2)
 
 .loader
     display: inline-block
