@@ -4,7 +4,6 @@ import VueRouter from 'vue-router';
 import HomeComponent from '@/views/HomeView.vue';
 import HomePage from '@/components/pages/HomePage.vue';
 import ProductsPage from '@/components/pages/ProductsPage.vue';
-import ProductsInfoPage from '@/components/pages/ProductsInfoPage.vue';
 import CarInfo from '@/components/pages/CarInfo.vue';
 
 import LoginPage from '@/components/pages/LoginPage.vue';
@@ -24,10 +23,6 @@ const routes = [
             {
                 path: '/products',
                 component: ProductsPage 
-            },
-            {
-                path: '/products/info',
-                component: ProductsInfoPage,
             },
             {
                 path: '/home/car-info',
