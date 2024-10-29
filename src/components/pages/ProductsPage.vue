@@ -191,7 +191,7 @@ export default class ProductsPage extends Vue {
         const ID = Math.floor(Math.random() * 5000);
 
         const newCar: SalesInfo = {
-            id: this.carInfo.id ? this.carInfo.id : ID,
+            id: this.$route.params.edite ? this.carInfo.id : ID,
             name: this.recipientOfTheVehicle,
             date: this.issuedOnLease,
             car: this.carName,
