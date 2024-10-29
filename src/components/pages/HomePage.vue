@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="search-box">
-                    <input v-model.trim="searchBySales" type="text" placeholder="Поиск">
+                    <input v-model.trim="searchBySales" type="text" placeholder="Поиск" class="form-control">
 
                     <i class="fa-solid fa-magnifying-glass left-icon"></i>
                     <i v-if="searchBySales.length" class="fa-solid fa-xmark right-icon" @click="searchBySales = ''"></i>
@@ -117,14 +117,13 @@ export default class HomePage extends Mixins(
 
 .car-box
     display: grid
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
     grid-gap: 24px
 
 .car-card
     display: flex
     flex-direction: column
     justify-content: space-between
-    // padding: 16px 26px 24px
     background: #fff
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2)
     border-radius: 4px

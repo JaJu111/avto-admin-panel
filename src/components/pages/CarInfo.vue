@@ -38,6 +38,11 @@
                 <h1><b>Получатель автомобиля:</b> {{ carInfo.name }}</h1>
                 <h1><b>Сколько месяцев осталось до полного оформление машин:</b> {{ carInfo.monthLeft }} месяцев</h1>
             </div>
+
+            <div class="btn-box mt-4">
+                <button @click="editCar" class="btn btn-primary mr-3">Редактировать</button>
+                <button @click="deleteCar" class="btn btn-danger">Удалить</button>
+            </div>
         </div>
     </div>
 </template>
@@ -46,14 +51,20 @@
 import { SalesInfo } from '@/mixins';
 import { Vue, Component } from 'vue-property-decorator';
 import LoaderComponent from '@/components/LoaderComponent.vue';
+import { mapActions } from 'vuex';
+import { Action } from 'vuex-class';
 
 @Component({
 	components: {
         LoaderComponent
-	}
+	},
+    methods: {
+    ...mapActions('car', ['delete'])
+    }
 })
 
 export default class CarInfo extends Vue {
+    @Action('delete', { namespace: 'car' }) delete!: (user) => void;
     carInfo: SalesInfo = JSON.parse(sessionStorage.getItem("carInfo")) || {};
     pageLoading: boolean = false;
     
@@ -86,6 +97,28 @@ export default class CarInfo extends Vue {
             case 'AUTO':
                 return 'Автоматическая';
         }
+    }
+
+    editCar(): void {
+        this.$router.push({
+            name: 'products', 
+            path: '/products',
+            params: {
+                edite: 'edite'
+            }
+        });
+    }
+
+    deleteCar(): void {
+        this.delete(this.carInfo.id);
+
+        this.$router.push({ 
+            name: 'home', 
+            path: '/home',
+            params: {
+                delete: this.carInfo.id.toString()
+            }
+        });
     }
 
     get profitFromCurrentCar(): string {
@@ -136,7 +169,7 @@ export default class CarInfo extends Vue {
         justify-content: center
         align-items: center
         width: 600px
-        height: auto
+        min-height: 230px
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
         overflow: hidden
 

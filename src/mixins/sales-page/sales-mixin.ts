@@ -34,6 +34,12 @@ export default class SalesPageMixin extends Mixins(
     }
 
     get filterSalesArr() {
+        let carId = this.$store.state.car.car;
+        
+        if (carId.length) {
+            return this.salesArr.filter(i => !carId.includes(i.id));
+        }
+
         if (this.btnSelected === 'В аренде') {
             return this.salesArr.filter(i => i.monthLeft);
         }

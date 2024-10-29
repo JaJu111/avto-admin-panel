@@ -5,7 +5,12 @@
         />
 
         <div v-if="!pageLoading">
-            <h1 class="text-4xl font-medium text-black mb-10">Добавить машину</h1>
+            <h1 v-if="!$route.params.edite" class="text-4xl font-medium text-black mb-10">Добавить машину</h1>
+            <h1 v-else class="text-4xl font-medium text-black mb-10">Редактировать машину</h1>
+
+            <div>
+                <h1>{{ carInfo.car }}</h1>
+            </div>
         </div>
     </div>
 </template>
@@ -13,6 +18,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import LoaderComponent from '@/components/LoaderComponent.vue';
+import { SalesInfo } from "@/mixins";
 
 @Component({
 	components: {
@@ -20,6 +26,7 @@ import LoaderComponent from '@/components/LoaderComponent.vue';
 	}
 })
 export default class ProductsPage extends Vue {
+    carInfo: SalesInfo = JSON.parse(sessionStorage.getItem("carInfo")) || {};
     pageLoading: boolean = false;
     
     created() {

@@ -18,10 +18,12 @@ const routes = [
         children: [
             {
                 path: '/home',
+                name: 'home',
                 component: HomePage
             },
             {
                 path: '/products',
+                name: 'products',
                 component: ProductsPage 
             },
             {
