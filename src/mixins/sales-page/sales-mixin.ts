@@ -9,6 +9,7 @@ export default class SalesPageMixin extends Mixins(
     btnSelected: string = 'Все';
     searchBySales: string = '';
     pageLoading: boolean = false;
+    editeCar: any = JSON.parse(sessionStorage.getItem("newCar")) || {}
 
     created() {
 		this.pageLoading = true;
@@ -16,6 +17,10 @@ export default class SalesPageMixin extends Mixins(
         setTimeout(() => {
             this.pageLoading = false;
         }, 1000);
+
+        if (this.editeCar.id) {
+            this.salesArr.push(this.editeCar);
+        }
 	}
 
     getSelectFilter(e: any): void {
