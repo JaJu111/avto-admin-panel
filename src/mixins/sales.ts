@@ -20,7 +20,8 @@ export default class SalesMixin extends Vue {
             km: 124566,
             year: '2010',
             type: 'MECHANICS',
-            percentagePerAnnum: 30
+            percentagePerAnnum: 30,
+            expensesForMachine: 100
         },
         {
             id: 3143,
@@ -37,7 +38,8 @@ export default class SalesMixin extends Vue {
             km: 158653,
             year: '2012',
             type: 'AUTO',
-            percentagePerAnnum: 30
+            percentagePerAnnum: 30,
+            expensesForMachine: 200
         },
         {
             id: 2461,
@@ -54,7 +56,8 @@ export default class SalesMixin extends Vue {
             km: 94275,
             year: '2018',
             type: 'AUTO',
-            percentagePerAnnum: 30
+            percentagePerAnnum: 30,
+            expensesForMachine: 150
         },
         {
             id: 7321,
@@ -71,7 +74,8 @@ export default class SalesMixin extends Vue {
             km: 113254,
             year: '2016',
             type: 'MECHANICS',
-            percentagePerAnnum: 30
+            percentagePerAnnum: 30,
+            expensesForMachine: 350
         },
         {
             id: 5432,
@@ -89,7 +93,8 @@ export default class SalesMixin extends Vue {
             km: 185000,
             year: '2012',
             type: 'MECHANICS',
-            percentagePerAnnum: 30
+            percentagePerAnnum: 30,
+            expensesForMachine: 500
         },
         {
             id: 3532,
@@ -107,7 +112,8 @@ export default class SalesMixin extends Vue {
             km: 215300,
             year: '2014',
             type: 'AUTO',
-            percentagePerAnnum: 30
+            percentagePerAnnum: 30,
+            expensesForMachine: 220
         },
         {
             id: 3928,
@@ -124,7 +130,8 @@ export default class SalesMixin extends Vue {
             km: 172500,
             year: '2016',
             type: 'AUTO',
-            percentagePerAnnum: 30
+            percentagePerAnnum: 30,
+            expensesForMachine: 100
         },
         {
             id: 3895,
@@ -141,7 +148,8 @@ export default class SalesMixin extends Vue {
             km: 131400,
             year: '2019',
             type: 'MECHANICS',
-            percentagePerAnnum: 30
+            percentagePerAnnum: 30,
+            expensesForMachine: 400
         }
     ]
 

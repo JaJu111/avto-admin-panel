@@ -5,7 +5,7 @@
         />
 
         <div v-if="!pageLoading">
-            <h1 class="text-4xl font-medium text-black mb-8">Главная</h1>
+            <h1 class="text-3xl font-medium text-black mb-8">Главная</h1>
 
             <ChartComponent
                 :salesArr="salesArr"

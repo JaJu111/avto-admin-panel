@@ -14,4 +14,5 @@ export interface SalesInfo {
     year: string
     type: string
     percentagePerAnnum: number
+    expensesForMachine: number
 }

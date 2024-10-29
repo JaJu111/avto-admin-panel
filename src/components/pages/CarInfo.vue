@@ -23,20 +23,26 @@
 
             <div class="car-info__content">
                 <h1><b>Машина:</b> {{ carInfo.car }}</h1>
-                <h1><b>Свет:</b> {{ carInfo.color }}</h1>
-                <h1><b>Номер машине:</b> {{ carInfo.carNumber }}</h1>
                 <h1><b>Год выпуска:</b> {{ carInfo.year }}</h1>
                 <h1><b>Km:</b> {{ format(carInfo.km) }} km</h1>
+                <h1><b>Свет:</b> {{ carInfo.color }}</h1>
+                <h1><b>Номер машине:</b> {{ carInfo.carNumber }}</h1>
                 <h1><b>Тип каробка передачи:</b> {{ getCarType(carInfo.type) }}</h1>
-
                 <h1><b>Стоимость автомобиля:</b> {{ format(carInfo.payment) }}$</h1>
+
+                <div class="line-box"></div>
+
                 <h1><b>Выдано в аренде:</b> {{ carInfo.date }}</h1>
                 <h1><b>Выдано в аренде количество месяцев:</b> {{ carInfo.month }} месяцев</h1>
-                <h1><b>Процент годовой:</b> {{ carInfo.percentagePerAnnum }}%</h1>
-                <h1><b>Прибыль из текущего автомобиля исходя в процентах:</b> {{ profitFromCurrentCar }}$</h1>
                 <h1><b>Первоначальный взнос:</b> {{ format(carInfo.initialPayment) }}$</h1>
-                <h1><b>Получатель автомобиля:</b> {{ carInfo.name }}</h1>
+                <h1><b>Процент годовой:</b> {{ carInfo.percentagePerAnnum }}%</h1>
                 <h1><b>Сколько месяцев осталось до полного оформление машин:</b> {{ carInfo.monthLeft }} месяцев</h1>
+                <h1><b>Получатель автомобиля:</b> {{ carInfo.name }}</h1>
+
+                <div class="line-box"></div>
+
+                <h1><b>Прибыль из текущего автомобиля исходя в процентах:</b> {{ profitFromCurrentCar }}$</h1>
+                <h1><b>Расходы за текущий автомобиля:</b> {{ carInfo.expensesForMachine }}$</h1>
             </div>
 
             <div class="btn-box mt-4">
@@ -188,6 +194,12 @@ export default class CarInfo extends Vue {
     h1
         margin-bottom: 12px
         font-size: 18px
+
+.line-box
+    width: 100%
+    height: 1px
+    background-color: #e5e5e5
+    margin: 24px 0
 
 @media (max-width: 600px)
     .car-info__content
