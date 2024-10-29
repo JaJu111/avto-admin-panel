@@ -1,5 +1,6 @@
 import { Component, Mixins } from "vue-property-decorator";
 import SalesMixin from '@/mixins/sales';
+import { SalesInfo } from "..";
 
 @Component
 export default class SalesPageMixin extends Mixins(
@@ -33,12 +34,8 @@ export default class SalesPageMixin extends Mixins(
         }
     }
 
-    get filterSalesArr() {
-        let carId = this.$store.state.car.car;
-        
-        if (carId.length) {
-            return this.salesArr.filter(i => !carId.includes(i.id));
-        }
+    get filterSalesArr(): SalesInfo[] {
+        this.salesArr = this.salesArr.filter(i => !this.$store.state.car.car.includes(i.id));
 
         if (this.btnSelected === 'В аренде') {
             return this.salesArr.filter(i => i.monthLeft);
