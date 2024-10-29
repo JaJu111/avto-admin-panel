@@ -126,13 +126,19 @@
 import { Component, Vue } from "vue-property-decorator";
 import LoaderComponent from '@/components/LoaderComponent.vue';
 import { SalesInfo } from "@/mixins";
+import { mapActions } from 'vuex';
+import { Action } from 'vuex-class'; 
 
 @Component({
 	components: {
 		LoaderComponent
-	}
+	},
+    methods: {
+    ...mapActions('salesArr', ['addCar'])
+    }
 })
 export default class ProductsPage extends Vue {
+    @Action('addCar', { namespace: 'car' }) addCar!: (obj) => void;
     carInfo: SalesInfo = JSON.parse(sessionStorage.getItem("carInfo")) || {};
     pageLoading: boolean = false;
     numberOfMonthsArr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36];
@@ -195,7 +201,7 @@ export default class ProductsPage extends Vue {
             name: this.recipientOfTheVehicle,
             date: this.issuedOnLease,
             car: this.carName,
-            carImg: '',
+            carImg: this.$route.params.edite ? this.carInfo.carImg : '',
             carNumber: this.carNumber,
             month: +this.numberOfMonthsIssued,
             monthLeft: +this.numberOfMonthsLeft,
@@ -226,8 +232,7 @@ export default class ProductsPage extends Vue {
             newCar.percentagePerAnnum &&
             newCar.expensesForMachine
         ) {
-            sessionStorage.setItem("newCar", JSON.stringify(newCar));
-
+            this.addCar(newCar);
             this.$router.push('/home');
         }
     }
