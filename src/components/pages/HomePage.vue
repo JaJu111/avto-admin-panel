@@ -36,6 +36,10 @@
                     class="car-card"
                 >
                     <div class="car-img">
+                        <div v-if="!item.monthLeft" class="to-send">
+                            <p>Продано</p>
+                        </div>
+
                         <img v-if="item.carImg" :src="item.carImg">
 
                         <i v-else class="fa-regular fa-image"></i>
@@ -150,6 +154,9 @@ export default class HomePage extends Mixins(
         font-weight: 500
 
 .car-img
+    position: relative
+    border-top-left-radius: 4px
+    border-top-right-radius: 4px
     width: 100%
     height: 180px
     display: flex
@@ -163,9 +170,25 @@ export default class HomePage extends Mixins(
         font-size: 28px
         color: #90a0b7
 
+    div.to-send
+        position: absolute
+        right: 0
+        top: 0
+        background-color: #e93c4c
+        padding: 0 8px
+        border-bottom-left-radius: 8px
+        border-top-right-radius: 4px
+
+        p
+            font-size: 14px
+            color: #fff
+            margin-bottom: 3px
+
 .card-bottom
     padding: 16px 26px 24px
     background: #f1f1f1
+    border-bottom-left-radius: 4px
+    border-bottom-right-radius: 4px
 
 .filter-box
     button

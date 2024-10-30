@@ -45,7 +45,8 @@ export default class SalesPageMixin extends Mixins(
             } else {
                 return this.salesArr.filter(i => {
                     if (i.monthLeft) {
-                        return i.car.toLowerCase().includes(this.searchBySales);
+                        return i.car.toLowerCase().includes(this.searchBySales) || 
+                            i.carNumber.toLowerCase().includes(this.searchBySales);
                     }
                 });
             }
@@ -57,14 +58,16 @@ export default class SalesPageMixin extends Mixins(
             } else {
                 return this.salesArr.filter(i => {
                     if (!i.monthLeft) {
-                        return i.car.toLowerCase().includes(this.searchBySales);
+                        return i.car.toLowerCase().includes(this.searchBySales) || 
+                            i.carNumber.toLowerCase().includes(this.searchBySales);
                     }
                 });
             }
         }
 
         return this.salesArr.filter(i => {
-            return i.car.toLowerCase().includes(this.searchBySales);
+            return i.car.toLowerCase().includes(this.searchBySales) || 
+                i.carNumber.toLowerCase().includes(this.searchBySales);
         });
     }
 }
