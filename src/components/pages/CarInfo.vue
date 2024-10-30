@@ -106,7 +106,7 @@ export default class CarInfo extends Vue {
         }
     }
 
-    pricePerMonth(item: SalesInfo) {
+    pricePerMonth(item: SalesInfo): string {
         let sum = item.payment - item.initialPayment;
 
         let yearPersent = sum * item.percentagePerAnnum / 100;
