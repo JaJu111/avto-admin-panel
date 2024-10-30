@@ -40,11 +40,27 @@ export default class SalesPageMixin extends Mixins(
         this.salesArr = this.salesArr.filter(i => !this.$store.state.car.car.includes(i.id));
 
         if (this.btnSelected === 'В аренде') {
-            return this.salesArr.filter(i => i.monthLeft);
+            if (!this.searchBySales.length) {
+                return this.salesArr.filter(i => i.monthLeft);
+            } else {
+                return this.salesArr.filter(i => {
+                    if (i.monthLeft) {
+                        return i.car.toLowerCase().includes(this.searchBySales);
+                    }
+                });
+            }
         }
 
         if (this.btnSelected === 'Проданный') {
-            return this.salesArr.filter(i => !i.monthLeft);
+            if (!this.searchBySales.length) {
+                return this.salesArr.filter(i => !i.monthLeft);
+            } else {
+                return this.salesArr.filter(i => {
+                    if (!i.monthLeft) {
+                        return i.car.toLowerCase().includes(this.searchBySales);
+                    }
+                });
+            }
         }
 
         return this.salesArr.filter(i => {

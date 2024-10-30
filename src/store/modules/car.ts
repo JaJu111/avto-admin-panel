@@ -162,7 +162,7 @@ const mutations = {
         state.salesArr = editeArr;
 
         if (!state.salesArr.includes(obj)) {
-            state.salesArr.push(obj);
+            state.salesArr.unshift(obj);
         }
     }
 };

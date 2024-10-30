@@ -13,7 +13,7 @@
 
             <div class="search-content flex justify-between mt-10 mb-7 items-end">
                 <div class="filter-content">
-                    <h3 class="text-2xl font-medium text-black mb-3">Поиск по машинам</h3>
+                    <h3 class="text-2xl font-medium text-black mb-3">Поиск по название автомобиля</h3>
 
                     <div class="filter-box">
                         <button name="Все" :class="['btn mr-2', {'btn-danger': btnSelected === 'Все'}]" @click="getSelectFilter($event)">Все {{ salesArr.length }}</button>
@@ -59,7 +59,7 @@
             </div>
 
             <div v-else>
-                <h1>Не найдено машин по вашему запросу</h1>
+                <h1>Не найдено автомобил по вашему запросу</h1>
             </div>
         </div>
     </div>
@@ -101,7 +101,7 @@ export default class HomePage extends Mixins(
     profitFromCurrentCar(item: SalesInfo): string {
         let sum = item.payment - item.initialPayment;
 
-        let yearPersent = sum * 0.3;
+        let yearPersent = sum * item.percentagePerAnnum / 100;
 
         let result = yearPersent / 12 * item.month;
 

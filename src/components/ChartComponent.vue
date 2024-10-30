@@ -90,7 +90,7 @@ export default class ChartComponent extends Vue {
     profitFromCurrentCar(item: SalesInfo): string {
         let sum = item.payment - item.initialPayment;
 
-        let yearPersent = sum * 0.3;
+        let yearPersent = sum * item.percentagePerAnnum / 100;
 
         let result = yearPersent / 12 * item.month;
 
@@ -104,7 +104,7 @@ export default class ChartComponent extends Vue {
         if (item.monthLeft) {
             sum = item.payment - item.initialPayment;
 
-            let yearPersent = sum * 0.3;
+            let yearPersent = sum * item.percentagePerAnnum / 100;
 
             result = yearPersent / 12 * item.month;
 

@@ -22,9 +22,9 @@
             </div>
 
             <div class="car-info__content">
-                <h1><b>Машина:</b> {{ carInfo.car }}</h1>
+                <h1><b>Автомобил:</b> {{ carInfo.car }}</h1>
                 <h1><b>Год выпуска:</b> {{ carInfo.year }}</h1>
-                <h1><b>Km:</b> {{ format(carInfo.km) }} km</h1>
+                <h1><b>Км:</b> {{ format(carInfo.km) }} km</h1>
                 <h1><b>Свет:</b> {{ carInfo.color }}</h1>
                 <h1><b>Номер машине:</b> {{ carInfo.carNumber }}</h1>
                 <h1><b>Тип каробка передачи:</b> {{ getCarType(carInfo.type) }}</h1>
@@ -32,16 +32,17 @@
 
                 <div class="line-box"></div>
 
-                <h1><b>Выдано в аренде:</b> {{ carInfo.date }}</h1>
+                <h1><b>Дата оформление аренду:</b> {{ carInfo.date }}</h1>
                 <h1><b>Выдано в аренде количество месяцев:</b> {{ carInfo.month }} месяцев</h1>
                 <h1><b>Первоначальный взнос:</b> {{ format(carInfo.initialPayment) }}$</h1>
                 <h1><b>Процент годовой:</b> {{ carInfo.percentagePerAnnum }}%</h1>
+                <h1><b>Оплата за месяц:</b> {{ pricePerMonth(carInfo) }}$</h1>
                 <h1><b>Сколько месяцев осталось до полного оформление машин:</b> {{ carInfo.monthLeft }} месяцев</h1>
                 <h1><b>Получатель автомобиля:</b> {{ carInfo.name }}</h1>
 
                 <div class="line-box"></div>
 
-                <h1><b>Прибыль из текущего автомобиля исходя в процентах:</b> {{ profitFromCurrentCar }}$</h1>
+                <h1><b>Прибыль из текущего автомобиля исходя в процентах:</b> {{ profitFromCurrentCar(carInfo) }}$</h1>
                 <h1><b>Расходы за текущий автомобиля:</b> {{ carInfo.expensesForMachine }}$</h1>
             </div>
 
@@ -105,6 +106,20 @@ export default class CarInfo extends Vue {
         }
     }
 
+    pricePerMonth(item: SalesInfo) {
+        let sum = item.payment - item.initialPayment;
+
+        let yearPersent = sum * item.percentagePerAnnum / 100;
+
+        let result = yearPersent / 12 * item.month;
+
+        let allSum = sum + result;
+
+        let month = allSum / item.month;
+
+        return this.format(Math.round(month));
+    }
+
     editCar(): void {
         this.$router.push({
             name: 'products', 
@@ -127,12 +142,12 @@ export default class CarInfo extends Vue {
         });
     }
 
-    get profitFromCurrentCar(): string {
-        let sum = this.carInfo.payment - this.carInfo.initialPayment;
+    profitFromCurrentCar(item: SalesInfo): string {
+        let sum = item.payment - item.initialPayment;
 
-        let yearPersent = sum * 0.3;
+        let yearPersent = sum * item.percentagePerAnnum / 100;
 
-        let result = yearPersent / 12 * this.carInfo.month;
+        let result = yearPersent / 12 * item.month;
 
         return this.format(result);
     }

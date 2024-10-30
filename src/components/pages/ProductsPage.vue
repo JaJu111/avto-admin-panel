@@ -15,27 +15,27 @@
                         <div class="form-left__box">
                             <div class="form-content mb-2">
                                 <label class="mb-1">Название автомобиля</label>
-                                <input v-model.trim="carName" type="text" class="form-control">
+                                <input v-model.trim="carName" type="text" class="form-control" placeholder="Spark 3 EURO">
                             </div>
 
                             <div class="form-content mb-2">
                                 <label class="mb-1">Год выпуска</label>
-                                <input v-model.trim="carYear" type="text" class="form-control">
+                                <input v-model.trim="carYear" type="text" class="form-control" placeholder="2012">
                             </div>
 
                             <div class="form-content mb-2">
-                                <label class="mb-1">Km</label>
-                                <input v-model.trim="carKm" type="number" class="form-control">
+                                <label class="mb-1">Км</label>
+                                <input v-model.trim="carKm" type="number" class="form-control" placeholder="185000">
                             </div>
 
                             <div class="form-content mb-2">
                                 <label class="mb-1">Номер автомобиля</label>
-                                <input v-model.trim="carNumber" type="text" class="form-control">
+                                <input v-model.trim="carNumber" type="text" class="form-control" placeholder="01 O 994 SA">
                             </div>
 
                             <div class="form-content mb-3">
                                 <label class="mb-1">Стоимость автомобиля ($)</label>
-                                <input v-model.trim="carPayment" type="number" class="form-control" placeholder="$">
+                                <input v-model.trim="carPayment" type="number" class="form-control" placeholder="USD">
                             </div>
 
                             <div class="form-select-box">
@@ -65,23 +65,23 @@
 
                         <div class="form-right__box">
                             <div class="form-content mb-2">
-                                <label class="mb-1">Выдано в аренде</label>
-                                <input v-model.trim="issuedOnLease" type="text" class="form-control">
+                                <label class="mb-1">Дата оформление аренду</label>
+                                <input v-model.trim="issuedOnLease" type="text" class="form-control" placeholder="дд.мм.гггг">
                             </div>
 
                             <div class="form-content mb-2">
                                 <label class="mb-1">Получатель автомобиля</label>
-                                <input v-model.trim="recipientOfTheVehicle" type="text" class="form-control">
+                                <input v-model.trim="recipientOfTheVehicle" type="text" class="form-control" placeholder="Имя получателя">
                             </div>
 
                             <div class="form-content mb-2">
                                 <label class="mb-1">Первоначальный взнос ($)</label>
-                                <input v-model.trim="initialPayment" type="number" class="form-control" placeholder="$">
+                                <input v-model.trim="initialPayment" type="number" class="form-control" placeholder="USD">
                             </div>
 
                             <div class="form-content mb-2">
                                 <label class="mb-1">Расходы автомобиля ($)</label>
-                                <input v-model.trim="carExpenses" type="number" class="form-control" placeholder="$">
+                                <input v-model.trim="carExpenses" type="number" class="form-control" placeholder="USD">
                             </div>
 
                             <div class="form-select-box">
