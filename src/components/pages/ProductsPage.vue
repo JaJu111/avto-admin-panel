@@ -214,7 +214,6 @@ export default class ProductsPage extends Vue {
             newCar.car && 
             newCar.carNumber && 
             newCar.month && 
-            newCar.monthLeft && 
             newCar.payment && 
             newCar.initialPayment && 
             newCar.color &&
