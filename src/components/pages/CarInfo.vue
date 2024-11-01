@@ -39,11 +39,7 @@
                 <h1><b>Оплата за месяц:</b> {{ pricePerMonth(carInfo) }}$</h1>
                 <h1><b>Сколько месяцев осталось до полного оформление машин:</b> {{ carInfo.monthLeft }} месяцев</h1>
                 <h1><b>Получатель автомобиля:</b> {{ carInfo.name }}</h1>
-
-                <div class="line-box"></div>
-
                 <h1><b>Прибыль из текущего автомобиля исходя в процентах:</b> {{ profitFromCurrentCar(carInfo) }}$</h1>
-                <h1><b>Расходы за текущий автомобиля:</b> {{ carInfo.expensesForMachine }}$</h1>
             </div>
 
             <div class="btn-box mt-4">

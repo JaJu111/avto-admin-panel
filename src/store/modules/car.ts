@@ -16,8 +16,7 @@ const state = {
             km: 124566,
             year: '2010',
             type: 'MECHANICS',
-            percentagePerAnnum: 30,
-            expensesForMachine: 100
+            percentagePerAnnum: 30
         },
         {
             id: 3143,
@@ -34,8 +33,7 @@ const state = {
             km: 158653,
             year: '2012',
             type: 'AUTO',
-            percentagePerAnnum: 30,
-            expensesForMachine: 200
+            percentagePerAnnum: 30
         },
         {
             id: 2461,
@@ -52,8 +50,7 @@ const state = {
             km: 94275,
             year: '2018',
             type: 'AUTO',
-            percentagePerAnnum: 30,
-            expensesForMachine: 150
+            percentagePerAnnum: 30
         },
         {
             id: 7321,
@@ -70,8 +67,7 @@ const state = {
             km: 113254,
             year: '2016',
             type: 'MECHANICS',
-            percentagePerAnnum: 30,
-            expensesForMachine: 350
+            percentagePerAnnum: 30
         },
         {
             id: 5432,
@@ -89,8 +85,7 @@ const state = {
             km: 185000,
             year: '2012',
             type: 'MECHANICS',
-            percentagePerAnnum: 30,
-            expensesForMachine: 500
+            percentagePerAnnum: 30
         },
         {
             id: 3532,
@@ -108,8 +103,7 @@ const state = {
             km: 215300,
             year: '2014',
             type: 'AUTO',
-            percentagePerAnnum: 30,
-            expensesForMachine: 220
+            percentagePerAnnum: 30
         },
         {
             id: 3928,
@@ -126,8 +120,7 @@ const state = {
             km: 172500,
             year: '2016',
             type: 'AUTO',
-            percentagePerAnnum: 30,
-            expensesForMachine: 100
+            percentagePerAnnum: 30
         },
         {
             id: 3895,
@@ -144,8 +137,7 @@ const state = {
             km: 131400,
             year: '2019',
             type: 'MECHANICS',
-            percentagePerAnnum: 30,
-            expensesForMachine: 400
+            percentagePerAnnum: 30
         }
     ]
 };

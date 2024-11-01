@@ -79,11 +79,6 @@
                                 <input v-model.trim="initialPayment" type="number" class="form-control" placeholder="USD">
                             </div>
 
-                            <div class="form-content mb-2">
-                                <label class="mb-1">Расходы автомобиля ($)</label>
-                                <input v-model.trim="carExpenses" type="number" class="form-control" placeholder="USD">
-                            </div>
-
                             <div class="form-select-box">
                                 <div class="form-content mb-2">
                                     <label class="mb-1">Годовой процент</label>
@@ -141,7 +136,7 @@ export default class ProductsPage extends Vue {
     @Action('addCar', { namespace: 'car' }) addCar!: (obj) => void;
     carInfo: SalesInfo = JSON.parse(sessionStorage.getItem("carInfo")) || {};
     pageLoading: boolean = false;
-    numberOfMonthsArr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36];
+    numberOfMonthsArr: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36];
     annualPercentageArr: number[] = [10, 15, 20, 25, 30, 35, 40, 45, 50];
     gearboxTypeArr: string[] = ['Механическая', 'Автоматическая'];
     carColorArr: string[] = ['Белый', 'Молочный', 'Синый', 'Черный', 'Красный', 'Серый', 'Голубой', 'Мокрый асфальт'];
@@ -157,7 +152,6 @@ export default class ProductsPage extends Vue {
     issuedOnLease: string = '';
     recipientOfTheVehicle: string = '';
     initialPayment: number = NaN;
-    carExpenses: number = NaN;
     annualPercentage: number = 30;
     numberOfMonthsIssued: number = 12;
     numberOfMonthsLeft: number = 12;
@@ -182,7 +176,6 @@ export default class ProductsPage extends Vue {
             this.issuedOnLease = this.carInfo.date;
             this.recipientOfTheVehicle = this.carInfo.name;
             this.initialPayment = this.carInfo.initialPayment;
-            this.carExpenses = this.carInfo.expensesForMachine;
             this.annualPercentage = this.carInfo.percentagePerAnnum;
             this.numberOfMonthsIssued = this.carInfo.month;
             this.numberOfMonthsLeft = this.carInfo.monthLeft;
@@ -211,8 +204,7 @@ export default class ProductsPage extends Vue {
             km: +this.carKm,
             year: this.carYear,
             type: this.getCarType(this.gearboxType),
-            percentagePerAnnum: this.annualPercentage,
-            expensesForMachine: +this.carExpenses
+            percentagePerAnnum: this.annualPercentage
         }
 
         if (
@@ -229,8 +221,7 @@ export default class ProductsPage extends Vue {
             newCar.km &&
             newCar.year &&
             newCar.type &&
-            newCar.percentagePerAnnum &&
-            newCar.expensesForMachine
+            newCar.percentagePerAnnum
         ) {
             this.addCar(newCar);
             this.$router.push('/home');

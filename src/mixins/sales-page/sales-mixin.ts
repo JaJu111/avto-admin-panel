@@ -1,14 +1,12 @@
-import { Component, Mixins } from "vue-property-decorator";
-import SalesMixin from '@/mixins/sales';
+import { Component, Vue } from "vue-property-decorator";
 import { SalesInfo } from "..";
 
 @Component
-export default class SalesPageMixin extends Mixins(
-    SalesMixin
-) {
+export default class SalesPageMixin extends Vue {
     btnSelected: string = 'Все';
     searchBySales: string = '';
     pageLoading: boolean = false;
+    salesArr: SalesInfo[] = [];
 
     created() {
 		this.pageLoading = true;

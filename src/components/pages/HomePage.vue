@@ -182,7 +182,7 @@ export default class HomePage extends Mixins(
         p
             font-size: 14px
             color: #fff
-            margin-bottom: 3px
+            margin-bottom: 2px
 
 .card-bottom
     padding: 16px 26px 24px
