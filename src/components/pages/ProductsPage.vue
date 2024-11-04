@@ -15,27 +15,27 @@
                         <div class="form-left__box">
                             <div class="form-content mb-2">
                                 <label class="mb-1">Название автомобиля</label>
-                                <input v-model.trim="carName" type="text" class="form-control" placeholder="Spark 3 EURO">
+                                <input v-model.trim="carName" type="text" :class="['form-control', {'error-input': carErrorCar}]" placeholder="Spark 3 EURO">
                             </div>
 
                             <div class="form-content mb-2">
                                 <label class="mb-1">Год выпуска</label>
-                                <input v-model.trim="carYear" type="text" class="form-control" placeholder="2012">
+                                <input v-model.trim="carYear" type="text" :class="['form-control', {'error-input': carErrorYear}]" placeholder="2012">
                             </div>
 
                             <div class="form-content mb-2">
                                 <label class="mb-1">Км</label>
-                                <input v-model.trim="carKm" type="number" class="form-control" placeholder="185000">
+                                <input v-model.trim="carKm" type="number" :class="['form-control', {'error-input': carErrorKm}]" placeholder="185000">
                             </div>
 
                             <div class="form-content mb-2">
                                 <label class="mb-1">Номер автомобиля</label>
-                                <input v-model.trim="carNumber" type="text" class="form-control" placeholder="01 O 994 SA">
+                                <input v-model.trim="carNumber" type="text" :class="['form-control', {'error-input': carErrorNumber}]" placeholder="01 O 994 SA">
                             </div>
 
                             <div class="form-content mb-3">
                                 <label class="mb-1">Стоимость автомобиля ($)</label>
-                                <input v-model.trim="carPayment" type="number" class="form-control" placeholder="USD">
+                                <input v-model.trim="carPayment" type="number" :class="['form-control', {'error-input': carErrorPayment}]" placeholder="USD">
                             </div>
 
                             <div class="form-select-box">
@@ -66,17 +66,17 @@
                         <div class="form-right__box">
                             <div class="form-content mb-2">
                                 <label class="mb-1">Дата оформление аренду</label>
-                                <input v-model.trim="issuedOnLease" type="text" class="form-control" placeholder="дд.мм.гггг">
+                                <input v-model.trim="issuedOnLease" type="text" :class="['form-control', {'error-input': carErrorIssuedOnLease}]" placeholder="дд.мм.гггг">
                             </div>
 
                             <div class="form-content mb-2">
                                 <label class="mb-1">Получатель автомобиля</label>
-                                <input v-model.trim="recipientOfTheVehicle" type="text" class="form-control" placeholder="Имя получателя">
+                                <input v-model.trim="recipientOfTheVehicle" type="text" :class="['form-control', {'error-input': carErrorName}]" placeholder="Имя получателя">
                             </div>
 
                             <div class="form-content mb-2">
                                 <label class="mb-1">Первоначальный взнос ($)</label>
-                                <input v-model.trim="initialPayment" type="number" class="form-control" placeholder="USD">
+                                <input v-model.trim="initialPayment" type="number" :class="['form-control', {'error-input': carErrorInitialPayment}]" placeholder="USD">
                             </div>
 
                             <div class="form-select-box">
@@ -118,7 +118,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Watch } from "vue-property-decorator";
 import LoaderComponent from '@/components/LoaderComponent.vue';
 import { SalesInfo } from "@/mixins";
 import { mapActions } from 'vuex';
@@ -155,6 +155,15 @@ export default class ProductsPage extends Vue {
     annualPercentage: number = 30;
     numberOfMonthsIssued: number = 12;
     numberOfMonthsLeft: number = 12;
+
+    carErrorCar: boolean = false;
+    carErrorYear: boolean = false;
+    carErrorKm: boolean = false;
+    carErrorNumber: boolean = false;
+    carErrorPayment: boolean = false;
+    carErrorIssuedOnLease: boolean = false;
+    carErrorName: boolean = false;
+    carErrorInitialPayment: boolean = false;
     
     created() {
 		this.pageLoading = true;
@@ -207,8 +216,55 @@ export default class ProductsPage extends Vue {
             percentagePerAnnum: this.annualPercentage
         }
 
+        if (!newCar.car) {
+            this.carErrorCar = true;
+        } else {
+            this.carErrorCar = false;
+        }
+
+        if (!newCar.year) {
+            this.carErrorYear = true;
+        } else {
+            this.carErrorYear = false;
+        }
+
+        if (!newCar.km) {
+            this.carErrorKm = true;
+        } else {
+            this.carErrorKm = false;
+        }
+
+        if (!newCar.carNumber) {
+            this.carErrorNumber = true;
+        } else {
+            this.carErrorNumber = false;
+        }
+
+        if (!newCar.payment) {
+            this.carErrorPayment = true;
+        } else {
+            this.carErrorPayment = false;
+        }
+
+        if (!newCar.date) {
+            this.carErrorIssuedOnLease = true;
+        } else {
+            this.carErrorIssuedOnLease = false;
+        }
+
+        if (!newCar.name) {
+            this.carErrorName = true;
+        } else {
+            this.carErrorName = false;
+        }
+
+        if (!newCar.initialPayment) {
+            this.carErrorInitialPayment = true;
+        } else {
+            this.carErrorInitialPayment = false;
+        }
+
         if (
-            newCar.id && 
             newCar.name && 
             newCar.date && 
             newCar.car && 
@@ -233,6 +289,62 @@ export default class ProductsPage extends Vue {
                 return 'MECHANICS';
             case 'Автоматическая':
                 return 'AUTO';
+        }
+    }
+
+    @Watch('carName')
+    getCarErrorCar(val: string): void {
+        if (val) {
+            this.carErrorCar = false;
+        }
+    }
+
+    @Watch('carYear')
+    getCarErrorYear(val: string): void {
+        if (val) {
+            this.carErrorYear = false;
+        }
+    }
+
+    @Watch('carKm')
+    getCarErrorKm(val: string): void {
+        if (val) {
+            this.carErrorKm = false;
+        }
+    }
+
+    @Watch('carNumber')
+    getCarErrorNumber(val: string): void {
+        if (val) {
+            this.carErrorNumber = false;
+        }
+    }
+
+    @Watch('carPayment')
+    getCarErrorPayment(val: string): void {
+        if (val) {
+            this.carErrorPayment = false;
+        }
+    }
+
+    @Watch('issuedOnLease')
+    getCarErrorIssuedOnLease(val: string): void {
+        if (val) {
+            this.carErrorIssuedOnLease = false;
+        }
+    }
+
+    @Watch('recipientOfTheVehicle')
+    getCarErrorName(val: string): void {
+        if (val) {
+            this.carErrorName = false;
+        }
+    }
+
+    @Watch('initialPayment')
+    getCarErrorInitialPayment(val: string): void {
+        if (val) {
+            this.carErrorInitialPayment = false;
         }
     }
 }
@@ -265,6 +377,16 @@ export default class ProductsPage extends Vue {
     height: 1px
     background-color: #000
     margin: 32px 0
+
+.error-input
+    border-color: #c82333
+    background: #fdf2f2
+
+.error-input:focus
+    outline: none
+    background: #ffeeee
+    border-color: #c82333
+    box-shadow: 0 0 0 .2rem #ffc4c4
 
 
 @media (max-width: 1200px)
