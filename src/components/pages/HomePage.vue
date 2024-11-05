@@ -13,12 +13,12 @@
 
             <div class="search-content flex justify-between mt-10 mb-7 items-end">
                 <div class="filter-content">
-                    <h3 class="text-2xl font-medium text-black mb-3">Поиск по название автомобиля</h3>
+                    <h3 class="text-2xl font-medium text-black mb-3">Поиск по название и номер автомобиля</h3>
 
                     <div class="filter-box">
-                        <button name="Все" :class="['btn mr-2', {'btn-danger': btnSelected === 'Все'}]" @click="getSelectFilter($event)">Все {{ salesArr.length }}</button>
-                        <button name="В аренде" :class="['btn mr-2', {'btn-danger': btnSelected === 'В аренде'}]" @click="getSelectFilter($event)">В аренде {{ salesArr.filter(i => i.monthLeft).length }}</button>
-                        <button name="Проданный" :class="['btn mr-2', {'btn-danger': btnSelected === 'Проданный'}]" @click="getSelectFilter($event)">Проданный {{ salesArr.filter(i => !i.monthLeft).length }}</button>
+                        <button name="Все" :class="['btn', {'btn-danger': btnSelected === 'Все'}]" @click="getSelectFilter($event)">Все {{ salesArr.length }}</button>
+                        <button name="В аренде" :class="['btn', {'btn-danger': btnSelected === 'В аренде'}]" @click="getSelectFilter($event)">В аренде {{ salesArr.filter(i => i.monthLeft).length }}</button>
+                        <button name="Проданный" :class="['btn', {'btn-danger': btnSelected === 'Проданный'}]" @click="getSelectFilter($event)">Проданный {{ salesArr.filter(i => !i.monthLeft).length }}</button>
                     </div>
                 </div>
 
@@ -75,6 +75,7 @@ import { Mixins, Component } from "vue-property-decorator";
 import ChartComponent from '@/components/ChartComponent.vue';
 import LoaderComponent from '@/components/LoaderComponent.vue';
 import { SalesInfo } from '@/mixins';
+import ProfitFromCar from '@/mixins/profit-from-car';
 
 @Component({
 	components: {
@@ -84,32 +85,13 @@ import { SalesInfo } from '@/mixins';
 })
 
 export default class HomePage extends Mixins(
-    SalesPageMixin
+    SalesPageMixin,
+    ProfitFromCar
 ) {
-    format(v: number): string {
-        let value = Number(v).toLocaleString('ru').replace(',', '.');
-
-        let [ mainValue, subValue ] = value.split('.');
-
-        subValue = subValue || '';
-
-        return mainValue + subValue;
-    }
-
     getCarInfo(item: SalesInfo): void {
         sessionStorage.setItem('carInfo', JSON.stringify(item));
             
         this.$router.push('/home/car-info');
-    }
-
-    profitFromCurrentCar(item: SalesInfo): string {
-        let sum = item.payment - item.initialPayment;
-
-        let yearPersent = sum * item.percentagePerAnnum / 100;
-
-        let result = yearPersent / 12 * item.month;
-
-        return this.format(result);
     }
 }
 
@@ -118,82 +100,5 @@ export default class HomePage extends Mixins(
 <style lang="sass" scoped>
 
 @import ../../style/pages/home
-
-.car-box
-    display: grid
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
-    grid-gap: 24px
-
-.car-card
-    display: flex
-    flex-direction: column
-    justify-content: space-between
-    background: #fff
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2)
-    border-radius: 4px
-    position: relative
-    user-select: none
-
-.car-info
-    display: flex
-    justify-content: space-between
-
-    h1
-        font-size: 16px
-        font-weight: bold
-
-    h2
-        font-size: 14px
-        display: flex
-        align-items: baseline
-        gap: 8px
-        margin-top: 4px
-
-    span
-        font-size: 15px
-        font-weight: 500
-
-.car-img
-    position: relative
-    border-top-left-radius: 4px
-    border-top-right-radius: 4px
-    width: 100%
-    height: 180px
-    display: flex
-    justify-content: center
-    align-items: center
-
-    img
-        width: 150px
-
-    i
-        font-size: 28px
-        color: #90a0b7
-
-    div.to-send
-        position: absolute
-        right: 0
-        top: 0
-        background-color: #e93c4c
-        padding: 0 8px
-        border-bottom-left-radius: 8px
-        border-top-right-radius: 4px
-
-        p
-            font-size: 14px
-            color: #fff
-            margin-bottom: 2px
-
-.card-bottom
-    padding: 16px 26px 24px
-    background: #f1f1f1
-    border-bottom-left-radius: 4px
-    border-bottom-right-radius: 4px
-
-.filter-box
-    button
-        font-weight: 500
-        font-size: 16px
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2)
 
 </style>

@@ -52,10 +52,11 @@
 
 <script lang="ts">
 import { SalesInfo } from '@/mixins';
-import { Vue, Component } from 'vue-property-decorator';
+import { Component, Mixins } from 'vue-property-decorator';
 import LoaderComponent from '@/components/LoaderComponent.vue';
 import { mapActions } from 'vuex';
 import { Action } from 'vuex-class';
+import ProfitFromCar from '@/mixins/profit-from-car';
 
 @Component({
 	components: {
@@ -66,7 +67,9 @@ import { Action } from 'vuex-class';
     }
 })
 
-export default class CarInfo extends Vue {
+export default class CarInfo extends Mixins(
+    ProfitFromCar
+) {
     @Action('delete', { namespace: 'car' }) delete!: (user) => void;
     carInfo: SalesInfo = JSON.parse(sessionStorage.getItem("carInfo")) || {};
     pageLoading: boolean = false;
@@ -81,16 +84,6 @@ export default class CarInfo extends Vue {
 
     submitProduct(): void {
         this.$router.push('/home');
-    }
-
-    format(v: number): string {
-        let value = Number(v).toLocaleString('ru').replace(',', '.');
-
-        let [ mainValue, subValue ] = value.split('.');
-
-        subValue = subValue || '';
-
-        return mainValue + subValue;
     }
 
     getCarType(type : string): string {
@@ -136,16 +129,6 @@ export default class CarInfo extends Vue {
                 delete: this.carInfo.id.toString()
             }
         });
-    }
-
-    profitFromCurrentCar(item: SalesInfo): string {
-        let sum = item.payment - item.initialPayment;
-
-        let yearPersent = sum * item.percentagePerAnnum / 100;
-
-        let result = yearPersent / 12 * item.month;
-
-        return this.format(result);
     }
 }
 

@@ -46,11 +46,14 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+import { Component, Prop, Mixins } from "vue-property-decorator";
 import { SalesInfo } from '@/mixins';
+import ProfitFromCar from "@/mixins/profit-from-car";
 
 @Component
-export default class ChartComponent extends Vue {
+export default class ChartComponent extends Mixins(
+    ProfitFromCar
+) {
 
     @Prop({ type: Array, default: () => [] }) readonly salesArr!: SalesInfo[];
 
@@ -75,26 +78,6 @@ export default class ChartComponent extends Vue {
         itemsSold = this.salesArr.reduce((sum, i: SalesInfo) => sum += i.monthLeft !== 0 ? +i.payment : i.payment - i.payment, 0);
 
         return `${this.format(itemsSold)}$`;
-    }
-
-    format(v: number): string {
-        let value = Number(v).toLocaleString('ru').replace(',', '.');
-
-        let [ mainValue, subValue ] = value.split('.');
-
-        subValue = subValue || '';
-
-        return mainValue + subValue;
-    }
-
-    profitFromCurrentCar(item: SalesInfo): string {
-        let sum = item.payment - item.initialPayment;
-
-        let yearPersent = sum * item.percentagePerAnnum / 100;
-
-        let result = yearPersent / 12 * item.month;
-
-        return this.format(result);
     }
 
     totalProfitByMonthLeft(item: SalesInfo): number {

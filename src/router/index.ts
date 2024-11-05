@@ -3,13 +3,13 @@ import VueRouter from 'vue-router';
 
 import HomeComponent from '@/views/HomeView.vue';
 import HomePage from '@/components/pages/HomePage.vue';
-import ProductsPage from '@/components/pages/ProductsPage.vue';
-import CarInfo from '@/components/pages/CarInfo.vue';
+import AddCarPage from '@/components/pages/AddCarPage.vue';
+import CarInfoPage from '@/components/pages/CarInfoPage.vue';
 
 import LoginPage from '@/components/pages/LoginPage.vue';
 import RegisterPage from '@/components/pages/RegisterPage.vue';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
     {
@@ -24,11 +24,11 @@ const routes = [
             {
                 path: '/products',
                 name: 'products',
-                component: ProductsPage 
+                component: AddCarPage 
             },
             {
                 path: '/home/car-info',
-                component: CarInfo
+                component: CarInfoPage
             }
         ]
     },
