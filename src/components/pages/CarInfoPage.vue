@@ -47,20 +47,13 @@
                 <button @click="openDialog = true" class="btn btn-danger">Удалить</button>
             </div>
 
-            <div v-if="openDialog" class="dialog-overlay">
-                <div class="dialog-box">
-                    <div class="dialog-box__top">
-                        <h1>Удалить автомобиля</h1>
-
-                        <span>Вы точно хотите удалить <b>"{{ carInfo.car }}"</b></span>
-                    </div>
-
-                    <div class="dialog-box__bottom">
-                        <button @click="openDialog = false" class="btn cancel">Отмена</button>
-                        <button @click="deleteCar" class="btn btn-danger">Удалить</button>
-                    </div>
-                </div>
-            </div>
+            <DialogComponent
+                v-if="openDialog"
+                :open="openDialog"
+                :item="carInfo"
+                @close="openDialog = false"
+                @delete="deleteCar"
+            />
         </div>
     </div>
 </template>
@@ -72,10 +65,12 @@ import LoaderComponent from '@/components/LoaderComponent.vue';
 import { mapActions } from 'vuex';
 import { Action } from 'vuex-class';
 import ProfitFromCar from '@/mixins/profit-from-car';
+import DialogComponent from '../DialogComponent.vue';
 
 @Component({
 	components: {
-        LoaderComponent
+        LoaderComponent,
+        DialogComponent
 	},
     methods: {
     ...mapActions('car', ['delete'])
@@ -152,115 +147,6 @@ export default class CarInfo extends Mixins(
 
 <style lang="sass" scoped>
 
-.car-info-box
-    display: flex
-    align-items: center
-    margin-bottom: 40px
-
-.icon-box
-    width: 30px
-    height: 30px
-    display: flex
-    align-items: center
-    justify-content: center
-    background: #f33636
-    border-radius: 50%
-    margin-right: 12px
-    cursor: pointer
-
-    i
-        color: #fff
-
-.car-title
-    font-size: 20px
-    font-weight: 500
-
-.car-info-img-box
-    display: flex
-    width: 100%
-    margin-bottom: 32px
-
-    div
-        display: flex
-        justify-content: center
-        align-items: center
-        width: 600px
-        min-height: 230px
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
-        overflow: hidden
-
-        i
-            font-size: 30px
-            color: #90a0b7
-
-    img
-        width: 100%
-
-.car-info__content
-    border-radius: 4px
-    padding: 16px 20px
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
-
-    h1
-        margin-bottom: 12px
-        font-size: 18px
-
-.line-box
-    width: 100%
-    height: 1px
-    background-color: #e5e5e5
-    margin: 24px 0
-
-.dialog-overlay
-    position: fixed
-    top: 0
-    left: 0
-    width: 100vw
-    height: 100vh
-    background-color: rgba(0, 0, 0, 0.5)
-    backdrop-filter: blur(8px)
-    display: flex
-    justify-content: center
-    align-items: center
-    padding: 0 24px
-
-.dialog-box
-    position: relative
-    display: flex
-    flex-direction: column
-    justify-content: space-between
-    width: 350px
-    height: 160px
-    padding: 16px 20px
-    border-radius: 6px
-    background-color: #fff
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.13)
-
-.dialog-box__top
-    h1
-        font-size: 20px
-        font-weight: 500
-        margin-bottom: 6px
-
-    span
-        font-size: 13px
-
-.dialog-box__bottom
-    display: flex
-    gap: 12px
-    justify-content: flex-end
-
-    button.cancel
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.16)
-
-
-@media (max-width: 600px)
-    .car-info__content
-        h1
-            font-size: 14px
-
-@media (max-width: 430px)
-    .dialog-box
-        width: 100%
+@import ../../style/pages/car-info-page
 
 </style>
