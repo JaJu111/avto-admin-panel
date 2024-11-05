@@ -44,7 +44,22 @@
 
             <div class="btn-box mt-4">
                 <button @click="editCar" class="btn btn-primary mr-3">Редактировать</button>
-                <button @click="deleteCar" class="btn btn-danger">Удалить</button>
+                <button @click="openDialog = true" class="btn btn-danger">Удалить</button>
+            </div>
+
+            <div v-if="openDialog" class="dialog-overlay">
+                <div class="dialog-box">
+                    <div class="dialog-box__top">
+                        <h1>Удалить автомобиля</h1>
+
+                        <span>Вы точно хотите Удалить <b>"{{ carInfo.car }}"</b></span>
+                    </div>
+
+                    <div class="dialog-box__bottom">
+                        <button @click="openDialog = false" class="btn cancel">Отмена</button>
+                        <button @click="deleteCar" class="btn btn-danger">Удалить</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -73,6 +88,7 @@ export default class CarInfo extends Mixins(
     @Action('delete', { namespace: 'car' }) delete!: (user) => void;
     carInfo: SalesInfo = JSON.parse(sessionStorage.getItem("carInfo")) || {};
     pageLoading: boolean = false;
+    openDialog: boolean = false;
     
     created() {
 		this.pageLoading = true;
@@ -195,9 +211,56 @@ export default class CarInfo extends Mixins(
     background-color: #e5e5e5
     margin: 24px 0
 
+.dialog-overlay
+    position: fixed
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    background-color: rgba(0, 0, 0, 0.5)
+    backdrop-filter: blur(8px)
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 0 24px
+
+.dialog-box
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: 350px
+    height: 160px
+    padding: 16px 20px
+    border-radius: 6px
+    background-color: #fff
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.13)
+
+.dialog-box__top
+    h1
+        font-size: 20px
+        font-weight: 500
+        margin-bottom: 6px
+
+    span
+        font-size: 13px
+
+.dialog-box__bottom
+    display: flex
+    gap: 12px
+    justify-content: flex-end
+
+    button.cancel
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.16)
+
+
 @media (max-width: 600px)
     .car-info__content
         h1
             font-size: 14px
+
+@media (max-width: 430px)
+    .dialog-box
+        width: 100%
 
 </style>

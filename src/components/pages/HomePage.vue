@@ -63,18 +63,20 @@
             </div>
 
             <div v-else>
-                <h1>Не найдено автомобил по вашему запросу</h1>
+                <div class="warning-box">
+                    <h1><i class="fa-solid fa-triangle-exclamation"></i> Не найдено автомобил по вашему запросу</h1>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import SalesPageMixin from '@/mixins/sales-page/sales-mixin';
 import { Mixins, Component } from "vue-property-decorator";
 import ChartComponent from '@/components/ChartComponent.vue';
 import LoaderComponent from '@/components/LoaderComponent.vue';
 import { SalesInfo } from '@/mixins';
+import SalesPageMixin from '@/mixins/sales-page/sales-mixin';
 import ProfitFromCar from '@/mixins/profit-from-car';
 
 @Component({
