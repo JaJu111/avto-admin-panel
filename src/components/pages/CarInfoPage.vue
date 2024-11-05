@@ -52,7 +52,7 @@
                     <div class="dialog-box__top">
                         <h1>Удалить автомобиля</h1>
 
-                        <span>Вы точно хотите Удалить <b>"{{ carInfo.car }}"</b></span>
+                        <span>Вы точно хотите удалить <b>"{{ carInfo.car }}"</b></span>
                     </div>
 
                     <div class="dialog-box__bottom">
