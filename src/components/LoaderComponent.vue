@@ -1,8 +1,10 @@
 <template>
     <div>
-        <div v-if="loading" class="loading">
-            <div class="loader-box">
-                <div class="loader"></div>
+        <div v-if="loading" class="loading-overlay">
+            <div class="loading">
+                <div class="loader-box">
+                    <div class="loader"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -20,14 +22,18 @@ export default class LoaderComponent extends Vue {
 
 <style lang="sass" scoped>
 
+.loading-overlay
+    position: fixed
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    display: flex
+    justify-content: center
+    align-items: center
+
 .loading
     position: absolute
-    top: 50%
-    right: 50%
-    transform: translateX(50%)
-    // left: 50%
-    // transform: translate(-50%, -50%)
-    z-index: 10
 
 .loader-box
     display: flex
