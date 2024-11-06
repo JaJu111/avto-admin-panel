@@ -32,7 +32,7 @@
 
                 <div class="line-box"></div>
 
-                <h1><b>Дата оформление аренду:</b> {{ carInfo.date }}</h1>
+                <h1><b>Дата оформление аренду:</b> {{ carInfo.date }} год</h1>
                 <h1><b>Выдано в аренде количество месяцев:</b> {{ carInfo.month }} месяцев</h1>
                 <h1><b>Первоначальный взнос:</b> {{ format(carInfo.initialPayment) }}$</h1>
                 <h1><b>Процент годовой:</b> {{ carInfo.percentagePerAnnum }}%</h1>
@@ -80,7 +80,7 @@ import DialogComponent from '../DialogComponent.vue';
 export default class CarInfo extends Mixins(
     ProfitFromCar
 ) {
-    @Action('delete', { namespace: 'car' }) delete!: (user) => void;
+    @Action('delete', { namespace: 'car' }) delete!: (id: number) => void;
     carInfo: SalesInfo = JSON.parse(sessionStorage.getItem("carInfo")) || {};
     pageLoading: boolean = false;
     openDialog: boolean = false;

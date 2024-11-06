@@ -4,7 +4,7 @@ const state = {
         {
             id: 3245,
             name: 'Виталий Логинов',
-            date: '17 июл. 2024 г.',
+            date: '17.07.2024',
             car: 'Matiz mx',
             carImg: 'https://frankfurt.apollo.olxcdn.com/v1/files/dndbpf1mbxc11-UZ/image',
             carNumber: '01 S 674 SA',
@@ -21,7 +21,7 @@ const state = {
         {
             id: 3143,
             name: 'Ольга Владимирова',
-            date: '20 авг. 2024 г.',
+            date: '20.07.2024',
             car: 'Matiz Best',
             carImg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRolCye40X6wnyHhoeoaDEjc-RNwptqg0yPEw&s',
             carNumber: '01 M 243 HF',
@@ -38,7 +38,7 @@ const state = {
         {
             id: 2461,
             name: 'Юлия Князева',
-            date: '01 авг. 2024 г.',
+            date: '25.07.2024',
             car: 'Lacetti gentra LTZ',
             carImg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZMIF8eO4r91eqxRqYBHbhTj9v2927e9XcJA&s',
             carNumber: '01 A 534 CD',
@@ -55,7 +55,7 @@ const state = {
         {
             id: 7321,
             name: 'Фёдор Тимофеев',
-            date: '12 авг. 2024 г.',
+            date: '12.07.2024',
             car: 'Nexia 3 LTZ',
             carImg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE7dGKkuiyfuoEMXJ0ny2fDRPxO0CkFqPutgu-37QnTklwpPlrQErgH0EZKKZI81490Wk&usqp=CAU',
             carNumber: '01 J 127 AR',
@@ -72,7 +72,7 @@ const state = {
         {
             id: 5432,
             name: 'Musaboyev Jaloliddin',
-            date: '10 май. 2024 г.',
+            date: '10.05.2024',
             car: 'Spark 3 EURO',
             carImg: 'https://sim-auto.ru/upload/img/2021/12/02/spark2.jpg',
             carNumber: '01 O 994 SA',
@@ -89,9 +89,8 @@ const state = {
         {
             id: 3532,
             name: 'Ярослав Жуков',
-            date: '28 июл. 2024 г.',
+            date: '28.05.2024',
             car: 'Lacetti',
-            // carImg: 'https://upl.uz/uploads/posts/2021-10/1633238997_1200x900n.jpg',
             carImg: '',
             carNumber: '01 A 943 FW',
             month: 30,
@@ -107,7 +106,7 @@ const state = {
         {
             id: 3928,
             name: 'Елена Молчанова',
-            date: '20 авг. 2024 г.',
+            date: '20.05.2024',
             car: 'Nexia 3 LTZ',
             carImg: 'https://s.auto.drom.ru/img5/catalog/photos/fullsize/ravon/nexia_r3/ravon_nexia_r3_294917.jpg',
             carNumber: '01 J 753 JK',
@@ -124,7 +123,7 @@ const state = {
         {
             id: 3895,
             name: 'Игнатий Осипов',
-            date: '18 авг. 2024 г.',
+            date: '18.05.2024',
             car: 'Spark 2',
             carImg: '',
             carNumber: '01 K 445 GE',
