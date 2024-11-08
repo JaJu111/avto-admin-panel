@@ -13,7 +13,7 @@
                             idx === 1 ? salesArrItemsSold : '' || 
                             idx === 2 ? salesArr.filter(i => i.monthLeft === 0).length + ' ' + 'клиентов' : '' ||
                             idx === 3 ? totalProfit : '' ||
-                            idx === 4 ? numberOfSalesPerMonth.length + ' ' + 'машин' : ''
+                            idx === 4 ? getSalesForCurrentMonth.length + ' ' + 'машин' : ''
                         }}
                     </div>
 
@@ -22,7 +22,7 @@
                             v-for="item in idx === 2 
                                 ? salesArr.filter(i => !i.monthLeft)
                                 : idx === 4
-                                ? numberOfSalesPerMonth
+                                ? getSalesForCurrentMonth
                                 : salesArr.filter(i => i.monthLeft)
                             " 
                             :class="'chart__box' + idx"
@@ -75,17 +75,17 @@ export default class ChartComponent extends Mixins(
             title: 'Обшый сумма в аренде'
         },
         {
-            title: 'Продано машин'
+            title: 'Продано машин за все время'
         },
         {
             title: 'Общий прибыль'
         },
-        {
-            title: 'Количество продаж в июле'
-        }
         // {
-        //     title: 'Продаж за текущий месяц'
+        //     title: 'Количество продаж в июле'
         // }
+        {
+            title: 'Продаж за текущий месяц'
+        }
     ];
 
     get salesArrItemsSold(): string {

@@ -4,7 +4,7 @@ const state = {
         {
             id: 3245,
             name: 'Виталий Логинов',
-            date: '17.07.2024',
+            date: '07.11.2024',
             car: 'Matiz mx',
             carImg: 'https://frankfurt.apollo.olxcdn.com/v1/files/dndbpf1mbxc11-UZ/image',
             carNumber: '01 S 674 SA',
@@ -21,7 +21,7 @@ const state = {
         {
             id: 3143,
             name: 'Ольга Владимирова',
-            date: '20.07.2024',
+            date: '01.11.2024',
             car: 'Matiz Best',
             carImg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRolCye40X6wnyHhoeoaDEjc-RNwptqg0yPEw&s',
             carNumber: '01 M 243 HF',
@@ -55,7 +55,7 @@ const state = {
         {
             id: 7321,
             name: 'Фёдор Тимофеев',
-            date: '12.07.2024',
+            date: '04.11.2024',
             car: 'Nexia 3 LTZ',
             carImg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE7dGKkuiyfuoEMXJ0ny2fDRPxO0CkFqPutgu-37QnTklwpPlrQErgH0EZKKZI81490Wk&usqp=CAU',
             carNumber: '01 J 127 AR',
@@ -89,7 +89,7 @@ const state = {
         {
             id: 3532,
             name: 'Ярослав Жуков',
-            date: '28.05.2024',
+            date: '07.11.2024',
             car: 'Lacetti',
             carImg: '',
             carNumber: '01 A 943 FW',
