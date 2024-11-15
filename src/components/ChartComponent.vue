@@ -1,8 +1,10 @@
 <template>
     <div>
         <div class="home-page">
-            <div v-for="(i, idx) in chartHeader" :class="'home-chart order' + idx">
-                <div class="chart__title">
+            <div v-for="(i, idx) in chartHeader" :class="'home-chart order' + idx" :style="{backgroundImage: `url(${i.bg})`}">
+                <div class="bg-box"></div>
+
+                <div class="chart__title relative">
                     <span>{{ i.title }}</span>
                 </div>
 
@@ -69,22 +71,28 @@ export default class ChartComponent extends Mixins(
 
     chartHeader: any[] = [
         {
-            title: 'В аренде'
+            title: 'В аренде',
+            bg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS574CcoTLl1-FyiRXBBioyOGtPdwVWDwKoMw&s'
         },
         {
-            title: 'Обшый сумма в аренде'
+            title: 'Обшый сумма в аренде',
+            bg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7IvxfhU0PXSPtHmOts-Pjp3azdewj5jzCvQ&s'
         },
         {
-            title: 'Продано машин за все время'
+            title: 'Продано машин за все время',
+            bg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxQepZKvIxb79HWOMXnrxruXdB1TCVu_ejew&s'
+            // bg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTklLppkOxB6jYQeEfT2tHkJwp20lUHugCT24ex0798eWug6B_0lV_Qzc7UCbXB0mpXh7w&usqp=CAU'
         },
         {
-            title: 'Общий прибыль'
+            title: 'Общий прибыль',
+            bg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUMmgvGDbYmgx4sY0tMTw29UbuuWza2ec3vnlboJx1K46eJEW3vfE3nRBH6xTtpbu_XCM&usqp=CAU'
         },
         // {
         //     title: 'Количество продаж в июле'
         // }
         {
-            title: 'Продаж за текущий месяц'
+            title: 'Продаж за текущий месяц',
+            bg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKZF1pNgAkUcsaZTvizZJ_dfgoSsxfE_brGA&s'
         }
     ];
 
@@ -150,5 +158,20 @@ export default class ChartComponent extends Mixins(
 <style lang="sass" scoped>
 
 @import ../style/charts-component
+
+.home-chart
+    position: relative
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center
+
+.bg-box
+    position: absolute
+    left: 0
+    top: 0
+    border-radius: 4px
+    width: 100%
+    height: 100%
+    backdrop-filter: blur(3px)
 
 </style>
