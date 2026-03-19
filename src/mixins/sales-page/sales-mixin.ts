@@ -43,8 +43,8 @@ export default class SalesPageMixin extends Vue {
             } else {
                 return this.salesArr.filter(i => {
                     if (i.monthLeft) {
-                        return i.car.toLowerCase().includes(this.searchBySales) || 
-                            i.carNumber.toLowerCase().includes(this.searchBySales);
+                        return i.car.toLowerCase().includes(this.searchBySales.toLowerCase()) || 
+                            i.carNumber.toLowerCase().includes(this.searchBySales.toLowerCase());
                     }
                 });
             }
@@ -56,16 +56,16 @@ export default class SalesPageMixin extends Vue {
             } else {
                 return this.salesArr.filter(i => {
                     if (!i.monthLeft) {
-                        return i.car.toLowerCase().includes(this.searchBySales) || 
-                            i.carNumber.toLowerCase().includes(this.searchBySales);
+                        return i.car.toLowerCase().includes(this.searchBySales.toLowerCase()) || 
+                            i.carNumber.toLowerCase().includes(this.searchBySales.toLowerCase());
                     }
                 });
             }
         }
 
         return this.salesArr.filter(i => {
-            return i.car.toLowerCase().includes(this.searchBySales) || 
-                i.carNumber.toLowerCase().includes(this.searchBySales);
+            return i.car.toLowerCase().includes(this.searchBySales.toLowerCase()) || 
+                i.carNumber.toLowerCase().includes(this.searchBySales.toLowerCase());
         });
     }
 }

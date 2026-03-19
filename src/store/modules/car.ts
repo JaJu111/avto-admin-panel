@@ -4,7 +4,7 @@ const state = {
         {
             id: 3245,
             name: 'Виталий Логинов',
-            date: '07.11.2024',
+            date: '07.03.2026',
             car: 'Matiz mx',
             carImg: 'https://frankfurt.apollo.olxcdn.com/v1/files/dndbpf1mbxc11-UZ/image',
             carNumber: '01 S 674 SA',
@@ -21,9 +21,9 @@ const state = {
         {
             id: 3143,
             name: 'Ольга Владимирова',
-            date: '01.11.2024',
+            date: '01.03.2026',
             car: 'Matiz Best',
-            carImg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRolCye40X6wnyHhoeoaDEjc-RNwptqg0yPEw&s',
+            carImg: '',
             carNumber: '01 M 243 HF',
             month: 24,
             monthLeft: 18,
@@ -38,7 +38,7 @@ const state = {
         {
             id: 2461,
             name: 'Юлия Князева',
-            date: '25.07.2024',
+            date: '02.03.2026',
             car: 'Lacetti gentra LTZ',
             carImg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZMIF8eO4r91eqxRqYBHbhTj9v2927e9XcJA&s',
             carNumber: '01 A 534 CD',
@@ -55,7 +55,7 @@ const state = {
         {
             id: 7321,
             name: 'Фёдор Тимофеев',
-            date: '04.11.2024',
+            date: '04.03.2026',
             car: 'Nexia 3 LTZ',
             carImg: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE7dGKkuiyfuoEMXJ0ny2fDRPxO0CkFqPutgu-37QnTklwpPlrQErgH0EZKKZI81490Wk&usqp=CAU',
             carNumber: '01 J 127 AR',
@@ -108,7 +108,7 @@ const state = {
             name: 'Елена Молчанова',
             date: '20.05.2024',
             car: 'Nexia 3 LTZ',
-            carImg: 'https://s.auto.drom.ru/img5/catalog/photos/fullsize/ravon/nexia_r3/ravon_nexia_r3_294917.jpg',
+            carImg: '',
             carNumber: '01 J 753 JK',
             month: 18,
             monthLeft: 0,
